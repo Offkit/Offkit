@@ -1,0 +1,56 @@
+/*******************************************************
+*
+* COMPONENTS/_LABELS.LESS
+*
+* create labels with span for alerts, infos... etc.
+*
+* Requiered:
+* _variables.less
+* _mixins.less [.init-rounded()]
+*
+* HTML markup:
+* <div class="warning">
+* 	 <p>some text…</p>
+* </div>
+*
+* || or ||
+*
+* <p> lorem <span class="error"> error message </span> ipsum </p>
+*
+*******************************************************/
+
+/******************************************************
+* INIT LABEL VARIABLES
+*******************************************************/
+
+@cp-label-padding: @margin-bottom/6 @margin-bottom/2;
+@cp-label-margin-bottom: @margin-bottom;
+@cp-label-font-family: @sans-serif;
+@cp-label-blue: @alert-blue;
+@cp-label-red: @alert-red;
+@cp-label-green: @alert-green;
+@cp-label-yellow: @alert-yellow;
+
+/******************************************************
+* LABEL CSS
+*******************************************************/
+
+.warning, .error, .info, .success{
+	.init-rounded();
+	font-family: @cp-label-font-family;
+	padding: @cp-label-padding;
+	margin-bottom: @cp-label-margin-bottom;
+}
+
+span.warning, .warning{
+	background: @cp-label-yellow;
+}
+span.error, .error{
+	background: @cp-label-red;
+}
+span.info, .info{
+	background: @cp-label-blue;
+}
+span.success, .success{
+	background: @cp-label-green;
+}

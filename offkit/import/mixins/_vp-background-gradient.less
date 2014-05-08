@@ -1,0 +1,64 @@
+/******************************************************
+*
+* MIXINS/_VP-BACKGROUND-GRADIENT.LESS
+*
+* Description:
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+.background-image(@gradient, ...) when not(@auto-prefixer = true){
+	// TO DO
+	// 1 dégrouper les arguments
+	// 2 lister les keyword et leur équivalent (genre "to bottom" => top)
+	// 3 faire la conversion (si on trouve un truc de la liste keyword alors on met son equivalent)
+	@value: ~`(function(){
+		 	var value = "@{arguments}".replace(/[\[\]]|\,\sX/g, '');
+			return value;
+		})()`;
+
+	@moz-value: ~`(function(){
+			var values = { "to top": "bottom",
+						 "to bottom": "top",
+						 "left": "left",
+						 "right": "right",
+						 "to top left": "bottom right",
+						 "to top right": "bottom left",
+						 "to bottom left": "top right",
+						 "to bottom right": "top left",
+						 "ellipse at center":"center, ellipse cover",
+	   					 "circle closest-side":"center center, circle contain",
+	   					 "circle farthest-corner":"center center, circle cover",
+	   					 "circle farthest-side":"center center, circle cover",
+	   					 "ellipse closest-side":"center center, ellipse contain",
+	   					 "ellipse farthest-corner":"center center, ellipse cover",
+	   					 "ellipse farthest-side":"center center, ellipse cover" };
+
+			arguments = "@{arguments}".replace(/[\[\]]|\,\sX/g, '');
+			for( var key in values){
+				var current = values[key];
+				arguments = arguments.replace(key, current);
+			}
+
+			return arguments;
+		})()`;
+
+    background-image: ~"-moz-@{moz-value}";
+    background-image: ~"-webkit-@{moz-value}";
+    background-image: ~"-o-@{moz-value}";
+    background-image: @value;
+}
+
+.background-image(@gradient, ...) when (@auto-prefixer = true){
+	@value: ~`(function(){
+		 	var value = "@{arguments}".replace(/[\[\]]|\,\sX/g, '');
+			return value;
+		})()`;
+	 background-image: @value;
+}
+
+
+ 
+   

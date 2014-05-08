@@ -1,0 +1,256 @@
+/******************************************************
+*
+* COMPONENTS/_FORMS.LESS
+*
+* Description:
+* Set default styles for forms elements
+* based upon the _variables.less values
+*
+* Requiered:
+* _variables.less
+* _mixins.less
+* _type.less
+*
+*******************************************************/
+
+//init (set margins)
+form{
+	margin: @margin-top 0 @margin-bottom;
+}
+	
+	//fieldset
+	fieldset{
+		padding: 0; margin: @margin-top 0 @margin-bottom;
+		border: none;
+		font-family: @label-font;
+		legend{
+			display: block;
+			width: 100%;
+			.size-b;
+			padding: 0;
+			border-bottom: 1px solid @border;
+		}
+	}
+	
+	input,
+	textarea,
+	select{
+		font-family: @input-font;
+	}
+
+	//input
+	input,
+	textarea{
+		display: block;
+		margin-bottom: @input-margin-bottom;
+		padding: @input-padding;
+		border: @input-border;
+		vertical-align: middle;
+		color: lighten(@body-color, 30%);
+		.init-rounded();
+		.box-sizing();
+		.transition(border, .4s);
+		&:focus{
+			box-shadow: @input-box-focus;
+			outline: none;
+			outline: thin dotted \9; /* IE6-9 */
+			border: @input-border-focus;
+		}
+		&:hover{
+			border: @input-border-focus;
+		}
+		&.disabled{
+			
+		}
+	}
+		
+	//detailed styles
+	
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"]{
+		
+	}
+	
+	input[type="number"]{
+		
+	}
+	
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"]{
+		
+	}
+	
+	input[type="color"]{
+		
+	}
+
+	//input type slider (experimental)
+	input[type="range"]{
+		padding: 0;
+	}
+	
+	//input type password
+	input[type="password"]{
+		
+	}
+	
+	input[type="submit"], 
+	&[type="button"],
+	button[type="submit"]{
+		// .appearance(); // cf mixins/_appearance.less
+		border: none; width: auto; overflow: visible;
+		font-style: normal;
+		line-height: normal;
+		height:auto;
+		vertical-align: middle;
+		text-align: center;
+		padding: @btn-padding;	
+		display: inline-block;
+		margin-bottom: @btn-margin-bottom;
+		font-family: @btn-font;
+		.init-rounded();
+		.size-a;
+		
+		// only works with _button.less
+		&.btn-large{
+			.btn-large;
+		}
+		// only works with _button.less
+		&.btn-small{
+			.btn-small;
+		}
+	}
+		
+	//textarea
+	textarea{
+		padding: @input-padding;
+		height: auto;
+		width: 100%;
+	}	
+	
+	
+	//radio
+	input[type="radio"], input[type="checkbox"]{
+		margin:0 .5em 0.2em 0;
+		display: inline-block;
+	}
+	// inline:
+	// <label><input type="radio"> blabla</label>
+
+	// inline the other way:
+	// might need a wrapper and adjust the margins
+	input[type="radio"].inline, input[type="checkbox"].inline{
+		display: inline;
+		&+label{
+			display: inline;
+		}
+	}
+
+	
+	//select
+	select{
+		//.reset-appearance-select();
+		option{
+			&.disabled{
+			
+			}
+		}
+		&.disabled{
+			
+		}
+		&:focus{
+			box-shadow: @input-box-focus;
+			outline: none;
+			outline: thin dotted \9; /* IE6-9 */
+			border: @input-border-focus;
+		}
+	}
+	
+	select,
+	input[type="file"]{}
+
+	
+	
+	//labels
+	label{
+		font-family: @label-font;
+		display: block;
+		margin-bottom: @label-margin-bottom; 
+		cursor: pointer;
+		&.disabled{
+			cursor: default;
+		}
+	}
+
+	//helpers text
+	.helper-text{
+		font-family: @label-font;
+		display: block;
+		color: lighten(@body-color, 30%);
+		margin-bottom: @label-margin-bottom;
+	}
+
+	label span, label small{
+		.size-small();
+		color: lighten(@body-color, 30%);
+		margin-bottom: @label-margin-bottom;
+	}
+
+
+	
+	//disabled
+	html input[disabled],
+	html select[disabled],
+	html textarea[disabled],
+	html button[disabled], 
+	html input[readonly],
+	html select[readonly],
+	html textarea[readonly],
+	{
+		cursor: not-allowed;
+		background-color: @lighter-grey;
+		border-color: @lighter-grey;
+		color: @light-grey;
+	  	&:hover, &:focus{
+		  	border-color: @lighter-grey;
+		  	box-shadow: 0;
+	  	}
+	}
+	// Explicitly reset the colors
+	input[type="radio"][disabled],
+	input[type="checkbox"][disabled],
+	input[type="radio"][readonly],
+	input[type="checkbox"][readonly] {
+	  background-color: transparent;
+	}
+	
+	.required, input[required]{
+		border-color:@alert-red;
+	}
+	
+	input:focus:invalid,
+	textarea:focus:invalid,
+	select:focus:invalid {
+	  color: @alert-red;
+	  border-color: @alert-red;
+	  &:focus {
+	    border-color: darken(@alert-red, 10%);
+	  }
+	}
+
+	input:invalid,
+	textarea:invalid,
+	select:invalid {
+	  color: @alert-red;
+	  border-color: @alert-red;
+	  &:focus {
+	    border-color: darken(@alert-red, 10%);
+	  }
+	}
+

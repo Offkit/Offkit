@@ -1,0 +1,55 @@
+/******************************************************
+*
+* MIXINS.LESS
+*
+* Set differents mixins for styles
+* Table of content:
+* 01 - IMPORT GENERICS
+* 02 - IMPORT GRID RELATED
+* 03 - IMPORT "VENDOR PREFIX" RELATED
+* 04 - INIT MIXINS
+*
+* Requiered:
+* _variables.less
+*
+*******************************************************/
+
+//_type.less related
+@import "mixins/_typographic-scale.less";
+
+//generics
+@import "mixins/_appearance.less";
+@import "mixins/_center.less";
+@import "mixins/_clearfix.less";
+@import "mixins/_font-face.less";
+@import "mixins/_opacity.less";
+@import "mixins/_placement.less";
+@import "mixins/_placeholder.less";
+@import "mixins/_rem.less";
+@import "mixins/_size.less";
+
+//grid related
+@import "mixins/_grid-measures.less";
+
+//vendors
+@import "mixins/_vp-animation.less";
+@import "mixins/_vp-font-feature.less";
+@import "mixins/_vp-backface-visibility.less";
+@import "mixins/_vp-background-clip.less";
+@import "mixins/_vp-background-gradient.less";
+@import "mixins/_vp-border-radius.less";
+@import "mixins/_vp-box-shadow.less";
+@import "mixins/_vp-box-sizing.less";
+@import "mixins/_vp-columns.less";
+@import "mixins/_vp-flex.less";
+@import "mixins/_vp-hyphens.less";
+@import "mixins/_vp-transform.less";
+@import "mixins/_vp-transition.less";
+@import "mixins/_vp-user-select.less";
+
+/******************************************************
+* 07 - INITIALISATIONS MIXINS
+*******************************************************/
+.init-rounded(@base-value: @rounded-value) when ( @rounded-bool = true) {
+	  .border-radius(@base-value);
+}

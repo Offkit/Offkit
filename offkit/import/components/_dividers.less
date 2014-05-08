@@ -1,0 +1,51 @@
+/******************************************************
+*
+* COMPONENTS/_DIVIDERS.LESS
+*
+* create dividers (<hr> equivalents)
+*
+* Requiered:
+* _variables.less
+*
+* HTML markup:
+* <div class="divider alert"></div>
+*
+*******************************************************/
+
+/******************************************************
+* INIT DIVIDER VARIABLES
+*******************************************************/
+
+@cp-divider-margin: @margin-bottom/2 0;
+
+@cp-divider-grey: @dark-grey;
+@cp-divider-black: @black;
+@cp-divider-red: @alert-red;
+
+/******************************************************
+* DIVIDER CSS
+*******************************************************/
+
+.divider{
+	width: 100%;
+	height: 1px;
+	margin: @cp-divider-margin;
+	overflow: hidden;
+	border-bottom: 1px solid @grey;
+	
+	&.dark{
+		border-bottom-color: @cp-divider-grey;
+	}
+	
+	&.black{
+		border-bottom-color: @cp-divider-black;
+	}
+	
+	&.alert{
+		border-bottom-color: @cp-divider-red;
+	}
+	
+	&.dotted{
+		border-bottom-style: dotted !important;
+	}
+}

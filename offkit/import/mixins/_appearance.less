@@ -1,0 +1,41 @@
+/******************************************************
+*
+* MIXINS/_APPEARANCE.LESS
+*
+* Description:
+* appearance prefixed
+*
+* Important: 
+* https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance
+*
+* “
+* Do not use this property on Web sites: not only is it non-standard, 
+* but its behavior changes from one browser to another. 
+* Even the keyword none does not have the same behavior on each 
+* form element across different browsers, and some do not support it at all.
+* ”
+*
+* This has led to some development tools, such as autoprefixer, 
+* from dropping any support for it ; therefor, the mixin 
+* will disregard the @auto-prefixer value
+*
+*
+* Default:
+* none
+*
+*******************************************************/
+
+.appearance(@value: none){
+	-webkit-appearance: @value;
+	-moz-appearance:    @value;
+	appearance:         @value;
+}
+
+/******************************************************/
+
+//ugly hack to remove arrow on firefox
+.reset-appearance-select(@value: none){
+	.appearance(@value);
+	text-indent: 1px;
+    text-overflow: '';
+}

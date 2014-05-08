@@ -1,0 +1,42 @@
+/******************************************************
+*
+* COMPONENTS/_BETTER-UNDERLINES.LESS
+*
+* Description:
+* better underlines for links and "u" tag in order
+* to prevent browsers like Google Chrome to use
+* the font-size to determine the size of the stroke
+* (it might be pretty ugly when font size > 18px)
+*
+* Requiered:
+* _variables.less (@link-color, @body-color, @heading-color)
+*
+* Note:
+* use it as a snippet for internal link by adding
+* a container class to the selector like
+* .container a:not(.btn){ … } or use the mixins
+* .cp-better-underlines()
+*
+*******************************************************/
+
+/******************************************************
+* INIT BETTER-UNDERLINES VARIABLES
+*******************************************************/
+
+@cp-bttru-color: @link-color;
+
+/******************************************************
+* BETTER-UNDERLINES CSS
+*******************************************************/
+.cp-better-underlines(){
+	text-decoration: none;
+	background: linear-gradient(top, @cp-bttru-color 50%, transparent 50%);
+	background-size: 100% 2px;
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+
+a:not(.btn),
+u {
+	.cp-better-underlines();
+}

@@ -1,0 +1,26 @@
+/******************************************************
+*
+* MIXINS/_VP-BACKFACE-VISIBILITY.LESS
+*
+* Description:
+* backface-visibility prefixed
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+* Default:
+* hidden
+*
+*******************************************************/
+
+.backface-visibility(@value: hidden) when not(@auto-prefixer = true){
+	-webkit-backface-visibility: @value;
+	-ms-backface-visibility: @value;
+	backface-visibility: @value;
+}
+
+.backface-visibility(@value: hidden) when (@auto-prefixer = true){
+	-webkit-backface-visibility: @value;
+	-ms-backface-visibility: @value;
+	backface-visibility: @value;
+}

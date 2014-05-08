@@ -1,0 +1,91 @@
+/*! OFFkit v1.0 | MIT License | offkit.github.io */
+
+/******************************************************
+*
+* STYLES
+*
+* Set differents mixins for styles
+* Table of content:
+* 01 - MAIN INITIALISATION
+* 02 - QUERIES
+* 03 - IE FIXE
+* 04 - PRINT SETTINGS
+*
+*******************************************************/
+
+/******************************************************
+* 01 - MAIN INITIALISATION
+*******************************************************/
+
+/* import normalize.css (version: 2.0.1) */
+@import "import/_normalize.less";
+
+/* import basic initialisation files (var, mixins, type settings and grid helper function) */
+@import "import/_constants.less";
+@import "import/_variables.less";
+@import "import/_mixins.less";
+@import "import/_utilitaries.less";
+@import "import/_type.less";
+@import "import/_grid.less";
+
+/* import basics styling */
+@import "import/_forms.less"; //forms
+@import "import/_buttons.less"; //buttons
+@import "import/_tables.less"; //tables
+@import "import/_medias.less"; //medias (img with max-width: 100% and picture element)
+
+/* import components (see components folder for complete list) */
+@import "import/components/_buttons-group.less"; //buttons
+@import "import/components/_labels.less"; //labels
+@import "import/components/_dividers.less"; //dividers
+@import "import/components/_embed-responsive.less"; //responsive embed objects
+@import "import/components/_tooltips.less";
+
+/* navigation component */
+// @import "import/components/navigation/_navigation.less"; //basic horizontal and vertical navigation if you don't use responsive navigation
+@import "import/components/navigation/_navigation-responsive-small.less"; //full css sliding navigation for small size (we then import navigation.less in the 768 media query)
+
+/* icons component (e recommand that you put your icon font code in this file) */
+@import "import/components/_icons.less";
+
+
+
+/******************************************************
+* 02 - QUERIES
+*******************************************************/
+/* base style */
+@import "_base.less";
+
+ 
+/* Landscape phones and up (default: 480px) */
+@media (min-width: @mq-smaller) {
+	@import "_smaller.less";
+}
+
+/* portrait tablet and up (default: 768px) */
+@media (min-width: @mq-small) {
+	@import "import/components/navigation/_navigation-responsive-large.less"; //basic navigation style to reset sliding nav
+	@import "_small.less";
+}
+
+/* Landscape tablet and up (default: 1024px) */
+@media (min-width: @mq-medium) {
+	@import "_medium.less";
+}
+
+/* Large desktop (default: 1240px) */
+@media (min-width: @mq-large) {
+	@import "_large.less";
+}
+
+/******************************************************
+* 04 - PRINT SETTINGS
+*******************************************************/
+@media print {
+	@import "import/_print.less";
+}
+
+/******************************************************
+* 05 - FOR DEBUGGING ONLY (remove for production)
+*******************************************************/
+// @import "import/components/_debug.less"; 

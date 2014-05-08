@@ -1,0 +1,155 @@
+/******************************************************
+*
+* COMPONENTS/_TOOLTIPS.LESS
+*
+* Full CSS tooltips 
+*
+* Requiered:
+* _variables.less
+* _type.less [.size-small()]
+* _mixins.less [.init-rounded()]
+* 
+* HTML markup:
+* <whatever class="tooltip tooltip-bottom tooltip-warning" data-tooltip="Some text to display">
+*
+*******************************************************/
+
+/******************************************************
+* INIT TOOLTIPS VARIABLES
+*******************************************************/
+
+@cp-tooltip-color: @bg-light;
+@cp-tooltip-bg-color: @bg-dark;
+@cp-tooltip-font: @sans-serif;
+
+@cp-tooltip-blue: @alert-blue;
+@cp-tooltip-red: @alert-red;
+@cp-tooltip-green: @alert-green;
+@cp-tooltip-yellow: @alert-yellow;
+
+/******************************************************
+* TOOLTIP CSS
+*******************************************************/
+.tooltip{
+	position: relative;
+	display: inline-block;
+
+	&:before, &:after{
+		position: absolute;
+
+		bottom: 100%;
+		left: 50%;
+		
+		visibility: hidden;
+		.opacity(0);
+		.transition();
+		pointer-events: none;
+	
+	}
+
+	&:before{
+		content: "";
+
+		position: absolute;
+		background: transparent;
+		border: 6px solid transparent;
+		border-top-color: @cp-tooltip-bg-color;
+		z-index: 9999;
+
+		margin-bottom: -12px;
+	}
+
+	&:after{
+		content: attr(data-tooltip);
+		background: @cp-tooltip-bg-color;
+		font-family: @cp-tooltip-font;
+		color: @bg-light;
+		.size-small();
+		font-weight: 400;
+		margin: 0; //reset margins
+		.init-rounded();
+
+		margin-left: -18px;
+		padding: .5em 1em;
+		white-space: nowrap;
+	}
+
+	&:hover,
+	&:focus{
+		&:before,
+		&:after{
+			visibility: visible;
+			.opacity(1);
+		}
+	}
+
+	//position (default: top)
+	&.tooltip-bottom{
+		&:before,
+		&:after{
+			top: 100%;
+			bottom: auto;
+		}
+		&:after{
+		}
+		&:before{
+			margin-bottom: 0;
+			margin-top: -12px;
+			border-top-color: transparent;
+			border-bottom-color: @cp-tooltip-bg-color;
+		}
+	}
+
+	//colors
+	&.tooltip-warning{
+		&:after{
+			background-color: @cp-tooltip-yellow;
+			color: @cp-tooltip-bg-color;
+		}
+		&:before{
+			border-top-color: @cp-tooltip-yellow;
+		}
+		&.tooltip-bottom:before{
+			border-top-color: transparent;
+			border-bottom-color: @cp-tooltip-yellow;
+		}	
+	}
+	&.tooltip-error{
+		&:after{
+			background-color: @cp-tooltip-red;
+		}
+		&:before{
+			border-top-color: @cp-tooltip-red;
+		}		
+		&.tooltip-bottom:before{
+			border-top-color: transparent;
+			border-bottom-color: @cp-tooltip-red;
+		}	
+	}
+	&.tooltip-info{
+		&:after{
+			background-color: @cp-tooltip-blue;
+			color: @cp-tooltip-bg-color;
+		}
+		&:before{
+			border-top-color: @cp-tooltip-blue;
+		}		
+		&.tooltip-bottom:before{
+			border-top-color: transparent;
+			border-bottom-color: @cp-tooltip-blue;
+		}	
+	}
+	&.tooltip-success{
+		&:after{
+			background-color: @cp-tooltip-green;
+			color: @cp-tooltip-bg-color;
+		}
+		&:before{
+			border-top-color: @cp-tooltip-green;
+		}	
+		&.tooltip-bottom:before{
+			border-top-color: transparent;
+			border-bottom-color: @cp-tooltip-green;
+		}	
+	}
+}

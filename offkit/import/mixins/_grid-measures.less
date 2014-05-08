@@ -1,0 +1,20 @@
+/******************************************************
+*
+* MIXINS/_GRID-MEASURES.LESS
+*
+* Description:
+* Generate widths, height or offset based on column counts
+*
+*******************************************************/
+
+.col-size-width(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth){
+	width: (@columnWidth * @index) + (@gutterWidth * (@index - 1));
+}
+
+.col-size-height(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth){
+	height: (@columnWidth * @index) + (@gutterWidth * (@index - 1));
+}
+
+.offset-col(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth){
+    margin-left: (@columnWidth * @index) + (@gutterWidth * (@index));
+}

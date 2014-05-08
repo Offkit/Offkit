@@ -1,0 +1,158 @@
+/******************************************************
+*
+* GRID.LESS
+*
+* Set functions for grid creation
+* (fixed & fluid, you choose you weapon)
+* Table of content:
+* 01 - GRID BUNDLE
+* 02 - CONTAINER RELATED CLASSES
+* 03 - COLUMN RELATED CLASSES
+*
+*******************************************************/
+
+
+//set the classes according to the names provided in _variables.less:
+@selector-row-col 	: e('[class^="@{container-name}-"]'); //all container-name selector (don't touch this one :) )
+
+// set the grid — each time you want to change
+// the grid, just call #grid > .gridBasic(@gridColumnWidth, @gridGutterWidth, padding, name-col, name-wrap, name-row);
+//to set multiple grid you MUST set all the arguments when you create it and MUST be used with .first and .last
+// ex: #grid > .gridBasic(30px, 10px, 6, 0, col2, wrap2, row2, offset2);
+
+#grid {
+
+	.gridBasic (@gridColumnWidth, 
+				@gridGutterWidth, 
+				@gridColumnCount, 
+				@gridColumnPadding: 0, 
+				@grid-col-name: @container-name, 
+				@grid-wrap-name: @wrap-name, 
+				@grid-row-name: @row-name,
+				@grid-offset-name: @offset-name) {	
+
+		.grideCreate(@index) when (@index > 0){
+			//create class for each .col-@gridColumnCount
+			.@{grid-col-name}-@{index} {
+				width: (@gridColumnWidth * @index) + (@gridGutterWidth * (@index - 1));
+				position: relative;
+				float: left;
+				margin-left: @gridGutterWidth;
+				padding: @gridColumnPadding;
+			}
+			.@{grid-offset-name}-@{index} when (@offset-grid = true){
+				margin-left: (@gridColumnWidth * @index) + (@gridGutterWidth * (@index - 1) + (@gridGutterWidth)) !important;// + (@gridGutterWidth * 2));
+			}
+			.grideCreate(@index - 1);
+		}
+		
+		.gridCreate(0){}
+	
+		.grideCreate(@gridColumnCount);			
+				
+		//adjust wrap and row width;
+		.@{grid-wrap-name} when (@use-wrap = true){
+			width: (@gridColumnWidth * @gridColumnCount) + (@gridGutterWidth * (@gridColumnCount - 1)); //box sizing and max-width doesn't get along that well in firefox...
+			max-width: none;
+			.clearfix();
+		}
+		.@{grid-row-name} when (@use-row = true){
+			width: (@gridColumnWidth * @gridColumnCount) + (@gridGutterWidth * (@gridColumnCount - 1)); //box sizing and max-width doesn't get along that well in firefox...
+			max-width: none;
+			.clearfix();
+		}
+
+		//if you won't use row
+		.first when (@use-wrap = true){
+			margin-left: 0 !important;
+		}
+
+		.last when (@use-wrap = true){
+			float:right !important;
+		}
+	}
+	
+	//golden ratio based grid
+	.gridGolden (@gridColumnWidth, 
+				 @gridColumnPadding, 
+				 @gridColumnCount, 
+				 @gridGutterWidth: false){
+
+		.gridGoldenCreate(@index) when (@index > 0) and (@gridGutterWidth = false){
+			.@{container-name}-@{index} {
+				width: (@gridColumnWidth * (@golden-ratio * @index));
+				position: relative;
+				float: left;
+				margin-right: 0; margin-left: 0;
+				padding: @gridColumnPadding;
+			}
+			.offset-@{index} when (@offset-grid = true){
+				margin-left: (@gridColumnWidth * (@golden-ratio * @index));
+			}
+
+			.gridGoldenCreate(@index - 1);
+		}
+
+		.gridGoldenCreate(0){};
+
+		.gridGoldenCreate(@gridColumnCount);
+
+		//if you won't use row
+		.first when (@use-wrap = true){
+			margin-left: 0 !important;
+		}
+
+		.last when (@use-wrap = true){
+			float:right !important;
+		}
+	}
+
+	//flexbox grid
+	.gridFlex(@gridColumnWidth, 
+			  @gridGutterWidth, 
+			  @gridColumnCount, 
+			  @gridColumnPadding: 0, 
+			  @fallback: true){
+
+		.gridFlexCreate(@index) when (@index > 0) and (@fallback = true){
+			.@{container-name}-@{index} {
+			}
+
+			.offset-@{index} when (@offset-grid = true) and (@fallback = true){
+			}
+
+			.gridFlexCreate(@index - 1);
+		}
+
+		.gridFlexCreate(0){};
+
+		.gridFlexCreate(@gridColumnCount);
+	}
+}
+
+
+
+.@{row-name} when (@use-row = true){
+	@{selector-row-col}{
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+}
+.@{wrap-name} when (@use-wrap = true){
+	max-width: 90%;
+	margin: 0 auto;
+}
+.@{wrap-name}-full when (@use-wrap = true){
+	width: 100%;
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+

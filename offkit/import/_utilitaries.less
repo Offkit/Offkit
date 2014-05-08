@@ -1,0 +1,76 @@
+/******************************************************
+*
+* MIXINS.LESS
+*
+* Set differents mixins for styles
+* Table of content:
+* 01 - COLORS
+* 02 - FONTS
+* 03 - UTILITARY VAR
+* 04 - UTILITARY CLASSES
+*
+*******************************************************/
+
+.clearfix{
+	.clearfix();
+}
+// Quick floats
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+
+// Toggling content
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+//mixins!
+.hide-on-mobile{
+
+}
+.hide-on-tablet{
+
+}
+.hide-on-desktop{
+
+}
+
+// Visibility
+.invisible {
+  	position: absolute;
+    width: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    height: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;   
+}
+
+/******************************************************
+* 03 - LAYOUT RELATED CLASSES
+*******************************************************/
+
+//centered
+.centered {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	float:none !important;
+	.clearfix();
+}
+
+.no-margin{
+	margin:0;
+}
+
+.no-padding{
+  padding: 0; 
+}
+
+

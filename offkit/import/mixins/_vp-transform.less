@@ -1,0 +1,93 @@
+/******************************************************
+*
+* MIXINS/_VP-TRANSFORM.LESS
+*
+* Description:
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+
+.transform(@string) when not(@auto-prefixer = true){
+    -webkit-transform:  @string;
+    -moz-transform:     @string;
+    -ms-transform:      @string;
+    -o-transform:       @string;
+    transform:          @string;
+}
+
+.transform(@string) when (@auto-prefixer = true){
+    transform:          @string;
+}
+
+/******************************************************/
+
+.transform-origin(@string) when not(@auto-prefixer = true){
+    -webkit-transform-origin:  @string;
+    -moz-transform-origin:     @string;
+    -ms-transform-origin:      @string;
+    -o-transform-origin:       @string;
+    transform-origin:          @string;
+}
+
+.transform-origin(@string) when (@auto-prefixer = true){
+    transform-origin:          @string;
+}
+
+/******************************************************/
+
+.rotate(@deg) when not(@auto-prefixer = true){
+    -webkit-transform:  rotate(@deg);
+    -moz-transform:     rotate(@deg);
+    -ms-transform:      rotate(@deg);
+    -o-transform:       rotate(@deg);
+    transform:          rotate(@deg);
+}
+
+.rotate(@deg) when (@auto-prefixer = true){
+    transform:          rotate(@deg);
+}
+
+/******************************************************/
+
+.scale(@factor) when not(@auto-prefixer = true){
+    -webkit-transform:  scale(@factor);
+    -moz-transform:     scale(@factor);
+    -ms-transform:      scale(@factor);
+    -o-transform:       scale(@factor);
+    transform:          scale(@factor);
+}
+
+.scale(@factor) when (@auto-prefixer = true){
+    transform:          scale(@factor);
+}
+
+/******************************************************/
+
+.translate (@x, @y) when not(@auto-prefixer = true){
+    -webkit-transform:  translate(@x, @y);
+    -moz-transform:     translate(@x, @y);
+    -ms-transform:      translate(@x, @y);
+    -o-transform:       translate(@x, @y);
+    transform:          translate(@x, @y);
+}
+
+.translate (@x, @y) when (@auto-prefixer = true){
+    transform:          translate(@x, @y);
+}
+
+/******************************************************/
+
+.skew (@degX, @degY) when not(@auto-prefixer = true){
+    -webkit-transform:  skew(@degX, @degY);
+    -moz-transform:     skew(@degX, @degY);
+    -ms-transform:      skew(@degX, @degY);
+    -o-transform:       skew(@degX, @degY);
+    transform:          skew(@degX, @degY);
+}
+
+.skew (@degX, @degY) when (@auto-prefixer = true){
+    transform:          skew(@degX, @degY);
+}

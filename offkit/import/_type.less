@@ -1,0 +1,414 @@
+/******************************************************
+*
+* TYPE.LESS
+*
+* Set differents mixins for styles
+* Table of content:
+* 01 - TITLES
+* 02 - PARAGRAPHS
+*
+*******************************************************/
+
+
+//paragraph settings
+.leading() when (@paragraph-leading = true){
+	margin: @p-margin-top 0 @p-margin-bottom;
+}
+.indent() when (@paragraph-indent = true){
+	margin: 0;
+	&+p{
+		text-indent: @indent-value;
+		&:before{
+			content: none;
+		}
+	}
+}
+//dropcaps adapted from Ian Devlin
+//http://www.iandevlin.com/blog/2012/04/css/cross-browser-drop-caps-with-css
+.dropcap() when (@paragraph-dropcap = true){
+	margin: 0 0 @p-margin-bottom;
+	&:first-letter { 
+		float:left; 
+		font-size:350%; 
+		height:.7em; 
+		line-height:.85em; 		
+		*line-height:1em; /* IE7 Only */ 
+		padding:0 .1em 0 0; 
+	}
+	&:before{
+		content: none;
+	}
+	&~p:first-letter {
+		float:none; 
+		font-size:1em; 
+		height:auto; 
+		line-height:@lineheight; 		
+		padding:0; 
+	}
+}
+.pilcrow() when (@paragraph-pilcrow = true){
+	margin: 0;	
+	position: relative;
+	&:before{
+		content: "\00B6";
+		display: inline-block; //make hack for ie7
+		left:-0.9em;
+		position: absolute;
+	}
+}
+.rule() when (@paragraph-rule = true){
+	border-bottom: 1px solid @body-color;
+	padding-bottom: @p-margin-bottom; margin-bottom: @p-margin-bottom - 0.1em;		
+	text-indent: 0;
+	&:last-of-type{
+		//Only works in ie9 !!!!
+		border:none;
+	}
+}
+
+/******************************************************
+* 01 - SET BASE FONT
+*******************************************************/
+html{
+	.base-type(@weight, @lineheight, @fontsize, @serif);
+}
+
+body{
+	//set break words, hyphen and color
+	color: @body-color;
+}
+
+/******************************************************
+* 01 - TITLES
+*
+* Put your styles for headings here
+*******************************************************/
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+	color: @heading-color;
+	font-family: @sans-serif;
+	text-rendering: optimizeLegibility;	// fix kerning
+	line-height: 1; // better spaces between 2 lines headings
+}
+
+h1, .h1{
+	.size-f;
+}
+h2, .h2{
+	.size-e;
+}
+h3, .h3{
+	.size-d;
+}
+h4, .h4{
+	.size-c;
+}
+h5, .h5{
+	.size-b;
+}
+h6, .h6{
+	.size-a;
+}
+p{
+	.size-a;
+}
+
+/******************************************************
+* 01 - INITIALISATION PARAGRAPH
+*******************************************************/
+
+
+.initParagraphStyle() when (@paragraph-style = "leading"){
+	p{ 
+		.leading();
+	}
+}
+.initParagraphStyle() when (@paragraph-style = "indent"){
+	p{
+		.indent();
+	}
+}
+.initParagraphStyle() when (@paragraph-style = "dropcap"){
+	p{
+		.dropcap();
+		.indent();
+	}
+}
+.initParagraphStyle() when (@paragraph-style = "pilcrow"){
+	p{
+		.pilcrow();
+	}
+}
+.initParagraphStyle() when (@paragraph-style = "rule"){
+	p{
+		.rule();
+	}
+}
+
+.initParagraphStyle();
+
+
+/******************************************************
+* 01 - PARAGRAPH STYLES
+* options:
+* A extra leading (default) margin bottom = lineheight (150% - 165%)
+* B Indent
+* C dropcap
+* D Graphic element (pilcrow)
+* E Rule
+*******************************************************/
+
+.leading when (@paragraph-leading = true){
+	p{
+		.leading();
+	}
+	p&{
+		.leading();
+	}
+}
+.dropcap when (@paragraph-dropcap = true){
+	p {
+		.dropcap();
+	}
+	p&{
+		.dropcap();
+	}
+}
+.indent when (@paragraph-indent = true){
+	p{
+		.indent();
+	}
+	p&{
+		.indent();
+	}
+}
+.pilcrow when (@paragraph-pilcrow = true){
+	p{
+		.pilcrow();
+	}
+	p&{
+		.pilcrow();
+	}
+}
+.rule when (@paragraph-rule = true){
+	p{
+		.rule();
+	}
+	p&{
+		.rule();
+	}
+}
+
+/******************************************************
+* 01 - other sizes
+*******************************************************/
+
+.small-text{
+	p{
+		.size-small;
+		&:first-child{
+			margin-top: .3em;
+		}
+	}
+}
+
+.smaller-text{
+	p{
+		.size-smaller;
+		&:first-child{
+			margin-top: .3em;
+		}
+	}
+}
+
+.small{
+	.size-smaller;
+}
+
+/******************************************************
+* 01 - LINKS
+*******************************************************/
+a{
+	color: @link-color;
+	//.transition;
+	&:hover{
+		color: @hover-color;
+	}
+}
+
+/******************************************************
+* 01 - BLOCKQUOTES
+*******************************************************/
+blockquote{
+	&:before,
+	&:after {
+		//definir les tailles des quotes
+	}
+	&:before {
+		//content avant
+	}
+	&:after {
+		//content après
+	}
+}
+
+/******************************************************
+* 01 - FIGURES
+*******************************************************/
+figure{
+	figcaption{
+		.size-small();
+		font-style: italic;
+		margin-bottom: @margin-bottom;
+		strong{
+			font-style:normal;
+		}
+	}
+}
+
+/******************************************************
+* 01 - CODE RELATED
+*******************************************************/
+pre{
+	background-color: darken(@bg-light, 4%);
+	border: 1px solid @grey;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	display: block;
+	font-weight: 400;
+	font-family: @mono;
+	font-size: 0.8em;
+	padding: @p-margin-bottom;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word;
+	code{
+		background: none;
+		border: none;
+		padding: 0;
+	}
+}
+
+code{
+	background-color: darken(@bg-light, 4%);
+	border: 1px solid @grey;
+	border: 1px solid rgba(0, 0, 0, 0.15);	
+	font-family: @mono;
+	font-weight: 400;
+	padding: 1px 6px;
+	font-size: 0.8em;
+}
+
+/******************************************************
+* 01 - LISTS
+*******************************************************/
+//unordered list
+ul{
+	margin: @p-margin-bottom 0;
+	padding: 0;
+	li{
+		//sublist
+		ul, ol{
+			margin: 0 0 0 @indent-value;
+			li{
+
+			}
+		}
+	}
+
+	&.custom{
+		list-style: none;
+		li{
+			&:before {
+				content:'☞';
+				color: @primary;
+				margin-right:@p-margin-bottom;
+			}
+
+			ul, ol{
+				list-style: none;
+				li{
+					&:before {
+						content:'✍';
+					}
+				}
+			}
+		}
+	}
+}
+
+//ordered list
+ol{
+	margin: @p-margin-bottom 0;
+	padding: 0;
+	li{
+
+		//sublist
+		ol,ul{
+			margin: 0 0 0 @indent-value;
+			li{
+
+			}
+		}
+	}
+}
+//definition list
+dl{
+	dt{
+		font-weight: bold;
+		.size-a;
+		margin-bottom:0;
+	}
+	dd{
+		.size-small;
+		margin-left: @indent-value;
+	}
+
+	&.dictionary-style{
+		dt{
+			counter-reset: definitions;
+		}
+		dd{
+			counter-increment: definitions;
+			&:before {
+				content: counter(definitions, decimal) ". ";
+				color: @primary;
+			}
+		}
+	}
+}
+
+/******************************************************
+* 01 - MISC
+*******************************************************/
+b{}
+strong{}
+em{}
+u{}
+sub{}
+sup{}
+small, .small{}
+abbr {
+	font-variant:small-caps;
+	.font-feature-smcp(); //set to opentype smallcaps if available
+	&:hover {
+		cursor: help;
+	}
+}
+
+hr{
+	border: 0;
+	border-top: 1px solid @lighter-grey;
+	border-bottom: 1px solid @white;
+	margin: @p-margin-bottom 0;
+	&.soften{
+		
+	}
+}
+
+.highlighted{
+	background-color: @alert-green;
+	margin-left: -0.1em; margin-right: -0.1em;
+	padding-left: 0.1em; padding-right: 0.1em;
+}
+
+

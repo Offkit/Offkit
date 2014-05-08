@@ -1,0 +1,17 @@
+/******************************************************
+*
+* MIXINS/_OPACITY.LESS
+*
+* Description:
+* Generate opacity and it's ie filter counterpart
+* based on a value from 0 to 1
+*
+* Default: .5
+*
+*******************************************************/
+
+.opacity(@alpha: .5) {
+    opacity: @alpha;
+    @ie: percentage(@alpha);
+    filter:~"alpha(opacity=@{ie})";
+}

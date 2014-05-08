@@ -1,0 +1,132 @@
+/******************************************************
+*
+* COMPONENTS/_BUTTONS.LESS
+*
+*
+*******************************************************/
+
+//init & reset
+button{
+	//.appearance();
+	border: none; margin: 0; padding: 0; line-height: @lineheight; width: auto; overflow: visible;
+	&:focus{
+		
+	}
+}
+
+.btn, button{
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: @btn-margin-bottom;
+	font-family: @btn-font;
+	line-height: normal;
+	vertical-align: middle;
+	text-align: center;
+	.transition(background-color);
+	.init-rounded();
+	background-color: @btn-default;
+	color: @btn-default-txt;
+	padding: @btn-padding;;		
+	
+	.size-a;
+	
+	&:hover,&:focus{
+		color: @btn-default-txt;
+		//border-color: @btn-default;
+		background-color: lighten(@btn-default, 2%);
+	}
+	&:active{
+		background-color: darken(@btn-default, 2%);		
+	}
+}
+
+
+//button size
+.btn-large{	
+	padding: @btn-padding-large;
+	.size-b;
+}
+
+.btn-medium{
+	padding: @btn-padding;
+	.size-a;
+}
+
+.btn-small{
+	padding: @btn-padding-small;
+	.size-smaller;
+}
+
+
+//button color
+.btn-primary{
+	background-color: @btn-primary;
+	color: @btn-primary-txt;
+	&:hover, &:focus{
+		color: @btn-primary-txt;
+		background-color: lighten(@btn-primary, 10%); 
+	}
+	&:active{
+		background-color: darken(@btn-primary, 2%);		
+	}	
+}
+.btn-secondary {
+	background-color: @btn-secondary;
+	color: @btn-secondary-txt;
+	&:hover, &:focus{
+		border-color: @btn-secondary;
+		background-color: lighten(@btn-secondary, 10%);
+	}
+	&:active{
+		background-color: darken(@btn-secondary, 2%);		
+	}	
+}
+
+.btn-red{
+	background-color: @btn-red;
+	color: @btn-red-txt;	
+	&:hover, &:focus{ 
+		color: @btn-red-txt;
+		background-color: lighten(@btn-red, 10%);
+	}
+	&:active{
+		background-color: darken(@btn-red, 2%);		
+	}	
+}
+
+.btn-green{
+	background-color: @btn-green;
+	color: @btn-green-txt;	
+	&:hover{
+		color: @btn-green-txt;
+		background-color: lighten(@btn-green, 10%);
+	}
+	&:active{
+		background-color: darken(@btn-green, 2%);		
+	}	
+}
+
+.btn-yellow{
+	background-color: @btn-yellow;
+	color: @btn-yellow-txt;	
+	&:hover{
+		color: @btn-yellow-txt;
+		background-color: lighten(@btn-yellow, 10%);
+	}
+	&:active{
+		background-color: darken(@btn-yellow, 2%);		
+	}	
+}
+
+.btn-blue{
+	background-color: @btn-blue;
+	color: @btn-blue-txt;	
+	&:hover{
+		color: @btn-blue-txt;
+		background-color: lighten(@btn-blue, 2%);
+	}
+	&:active{
+		background-color: darken(@btn-blue, 2%);		
+	}	
+}

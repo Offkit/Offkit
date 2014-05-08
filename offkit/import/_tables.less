@@ -1,0 +1,103 @@
+/******************************************************
+*
+* COMPONENTS/_TABLES.LESS
+*
+*******************************************************/
+table{
+	width: 100%;
+	font-family: @table-body-font;
+	margin-bottom: @table-margin-bottom;
+	border-collapse: collapse;
+	border-spacing: 0;
+  
+	caption{
+		text-align: left;
+		color: @heading-color;
+		margin-bottom: @table-margin-bottom;
+		margin-top: @table-margin-top;
+	}
+	
+	thead, tfoot{
+		font-family: @table-header-font;
+		text-align: left;
+		tr{
+			background: none;
+			th,td{
+				padding: @table-padding;
+			}
+		}
+	}
+	
+	tbody{
+		tr{
+			border-top: 1px solid @light-border;
+			td{
+				padding: @table-padding;
+			}
+		}
+	}
+	
+
+	//AND STRIPPED
+	&.striped{
+		tbody{
+			tr{
+				&:nth-child(odd){
+					background-color: darken(@bg-light,3.5%);
+				}
+			}
+		}
+	}
+	
+	//AND SELECT ENABLED
+	&.select{
+		tbody{
+			tr{
+				&:hover{
+					background-color: darken(@bg-light,7%);
+					cursor: pointer;
+					&.warning > td,
+					td.warning{
+						background-color: darken(@alert-yellow,7%);
+					}
+					&.success > td,
+					td.success{
+						background-color: darken(@alert-green,7%);
+					}
+					&.info > td,
+					td.info{
+						background-color: darken(@alert-blue,7%);
+					}
+					&.error > td,
+					td.error{
+						background-color: darken(@alert-red,7%);
+					}
+				}
+			}
+		}
+	}
+	
+	//overide striped settings when warnings
+	tbody{
+		tr{
+			&.warning > td, 
+			td.warning{
+				background-color: @alert-yellow;
+			}
+			&.success > td,
+			td.success{
+				background-color: @alert-green;
+			}
+			&.info > td,
+			td.info{
+				background-color: @alert-blue;
+			}
+			&.error > td,
+			td.error{
+				background-color: @alert-red;
+			}
+		}
+	}
+	
+}
+

@@ -1,0 +1,21 @@
+/******************************************************
+*
+* MIXINS/_VP-FILTERS.LESS
+*
+* Description:
+* css fiters prefixed
+* filter: <filter-function> [<filter-function>]* | none
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+.filter(@value) when not(@auto-prefixer = true){
+	-webkit-filter: @value;
+	filter: @value;
+}
+
+.filter(@value) when (@auto-prefixer = true){
+	filter: @value;
+}

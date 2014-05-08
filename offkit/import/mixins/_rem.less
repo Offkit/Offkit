@@ -1,0 +1,28 @@
+/******************************************************
+*
+* MIXINS/_REM.LESS
+*
+* Description:
+* conversion tool for setting up font-size
+* from a pixel value to a rem value with pixel fallback
+* or to set the pixel fallback from a rem value
+* do nothing if the unit is em.
+*
+* Requiered:
+* _variables.less (@basesize)
+*
+*******************************************************/
+
+.rem(@value) when (ispixel(@value)){
+	font-size: @value;
+	font-size: unit((@value/@basesize), rem);
+}
+
+.rem(@value) when (isunit(@value, "rem")){
+	font-size: unit((@value * @basesize), px);
+	font-size: @value;
+}
+
+.rem(@value) when (isunit(@value, "em")){
+    font-size: @value;
+}

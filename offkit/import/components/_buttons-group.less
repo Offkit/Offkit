@@ -1,0 +1,64 @@
+/******************************************************
+*
+* COMPONENTS/_BUTTONS.LESS
+*
+* Generate button group with rounded values on the edges or not
+*
+* Requiered:
+* _variables.less
+*
+* HTML markup:
+* <div class="btn-group btn-large">
+* 	 <a href="#" class="btn">a button</a>
+* 	 <a href="#" class="btn">another button</a>
+* 	 <a href="#" class="btn">a third button</a>
+* </div>
+*
+*******************************************************/
+
+/******************************************************
+* INIT BUTTON GROUP VARIABLES
+*******************************************************/
+
+@cp-btngrp-radius: @rounded-value;
+@cp-btngrp-margin: @btn-margin-top 0 @btn-margin-bottom;
+
+@cp-btngrp-separator: 1px solid @light-border; //border value or none
+
+/******************************************************
+* BUTTON GROUP CSS
+*******************************************************/
+
+.btn-group{
+	font-size: 0;
+	margin: @cp-btngrp-margin;
+	padding: 0;
+	.clearfix();
+	.btn, button{
+		.border-radius(0);
+		border-right: @cp-btngrp-separator;
+		
+		&:first-child {
+			.border-radius(0, 0, @cp-btngrp-radius, @cp-btngrp-radius);
+		}
+		&:last-child{
+			.border-radius(@cp-btngrp-radius, @cp-btngrp-radius, 0, 0);	
+			border-right: none;		
+		}
+	}
+	&.btn-large{
+		.btn, button{
+			.btn-large;
+		}
+	}
+	&.btn-medium{
+		.btn, button{	
+			.btn-medium;
+		}
+	}
+	&.btn-small{
+		.btn, button{
+			.btn-small;
+		}
+	}
+}

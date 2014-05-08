@@ -1,0 +1,22 @@
+/******************************************************
+*
+* MIXINS/_VP-BOX-SIZING.LESS
+*
+* Description:
+* background-clip prefixed (default: border-box)
+* background-clip: [border-box | padding-box ] [ , [border-box | padding-box ] ]* ;
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+.background-clip(@clip: padding-box) when not(@auto-prefixer = true){
+	-moz-background-clip: @clip;
+    -webkit-background-clip: @clip;
+    background-clip: @clip;
+}
+
+.background-clip(@clip: padding-box) when (@auto-prefixer = true){
+    background-clip: @clip;
+}

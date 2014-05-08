@@ -1,0 +1,95 @@
+/******************************************************
+*
+* MIXINS/_VP-TRANSITION.LESS
+*
+* Description:
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+.transition(@what: @transition-property, @time: @transition-duration, @transition: @transition-ease) when (iskeyword(@what)) and (isnumber(@time)) and not(@auto-prefixer = true){
+    -webkit-transition: @what @time @transition;
+    -moz-transition:    @what @time @transition;
+    -ms-transition:     @what @time @transition;
+    -o-transition:      @what @time @transition;
+    transition:         @what @time @transition;
+}
+
+.transition(@what: @transition-property, @time: @transition-duration, @transition: @transition-ease) when (iskeyword(@what)) and (isnumber(@time)) and (@auto-prefixer = true){
+    transition:         @what @time @transition;
+}
+
+/******************************************************/
+
+/* multiple transition and delay */
+.transition(@transitionX, @transitionY, ...) when not(iskeyword(@transitionX)) and not(@auto-prefixer = true){
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+    -webkit-transition: @value;
+    -moz-transition:    @value;
+    -ms-transition:     @value;
+    -o-transition:      @value;
+    transition:         @value;
+}
+
+.transition(@transitionX, @transitionY, ...) when not(iskeyword(@transitionX)) and (@auto-prefixer = true){
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+    transition:         @value;
+}
+
+/******************************************************/
+
+.transition-property(@what) when not(@auto-prefixer = true){
+    -webkit-transition-property: @what;
+    -moz-transition-property:    @what;
+    -ms-transition-property:     @what;
+    -o-transition-property:      @what;
+    transition-property:         @what;
+}
+
+.transition-property(@what) when (@auto-prefixer = true){
+    transition-property:         @what;
+}
+
+/******************************************************/
+
+.transition-duration(@time) when not(@auto-prefixer = true){
+    -webkit-transition-duration: @time;
+    -moz-transition-duration:    @time;
+    -ms-transition-duration:     @time;
+    -o-transition-duration:      @time;
+    transition-duration:         @time;
+}
+
+.transition-duration(@time) when (@auto-prefixer = true){
+    transition-duration:         @time;
+}
+
+/******************************************************/
+
+.transition-delay(@delay) when not(@auto-prefixer = true){
+    -webkit-transition-delay: @delay;
+    -moz-transition-delay:    @delay;
+    -ms-transition-delay:     @delay;
+    -o-transition-delay:      @delay;
+    transition-delay:         @delay;
+}
+
+.transition-delay(@delay) when (@auto-prefixer = true){
+    transition-delay:         @delay;
+}
+
+/******************************************************/
+
+.transition-timing-function(@ease) when not(@auto-prefixer = true){
+    -webkit-transition-timing-function: @ease;
+    -moz-transition-timing-function:    @ease;
+    -ms-transition-timing-function:     @ease;
+    -o-transition-timing-function:      @ease;
+    transition-timing-function:         @ease;
+}
+
+.transition-timing-function(@ease) when (@auto-prefixer = true){
+    transition-timing-function:         @ease;
+}

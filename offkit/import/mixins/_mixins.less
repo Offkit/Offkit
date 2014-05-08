@@ -1,0 +1,43 @@
+FOR FUTURE USE
+==========================
+
+make separated files for each mixin
+add condition when @auto-prefixer = false
+for each mixins in the "vendor-prefix" 
+category (like box-shadows… etc) and add
+@auto-prefixer in variables (if you use auto-prefixer,
+you do not need that)
+
+./import/_mixins.less will then be the hub
+./import/mixins/ will contains the following files =>
+
+//generics
+_center.less // display block margin auto
+_clearfix.less
+_font-face.less
+_opacity.less
+_placement.less
+_placeholder.less
+_rem.less
+_size.less
+
+//grid related
+_grid-measures.less
+
+//vendors
+_vp-animation.less
+_vp-backface.less
+_vp-background-gradient.less
+_vp-border-radius.less
+_vp-box-shadow.less
+_vp-box-sizing.less
+_vp-columns.less
+_vp-flex.less
+_vp-hyphens.less
+_vp-transform.less
+_vp-transition.less
+_vp-user-select.less
+
+//inline at the end of the file
+//initialisations
+.init-rounded() when rounded=true;

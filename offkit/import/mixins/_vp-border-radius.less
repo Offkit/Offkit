@@ -1,0 +1,144 @@
+ /******************************************************
+*
+* MIXINS/_VP-BORDER-RADIUS.LESS
+*
+* Description:
+* border-radius prefixed (default: @rounded-value)
+* 
+* Requiered:
+* _variable.less (@rounded-value)
+* mixins/_vp-background-clip.less
+*
+*******************************************************/
+
+.border-radius(@radius: @rounded-value) when not(@auto-prefixer = true){
+	-webkit-border-radius: 	@radius;
+    -moz-border-radius: 	@radius;
+    border-radius: 			@radius;
+    
+    .background-clip();
+}
+
+.border-radius(@radius: @rounded-value) when (@auto-prefixer = true){
+    border-radius: 			@radius;
+    
+    .background-clip();
+}
+
+/******************************************************/
+
+.border-radius(@top, @bottom) when not(@auto-prefixer = true){
+	-webkit-border-top-left-radius: 	@top;
+    -moz-border-top-left-radius: 		@top;
+    border-top-left-radius: 			@top;
+    -webkit-border-top-right-radius: 	@top;
+    -moz-border-top-right-radius: 		@top;
+    border-top-right-radius: 			@top;
+    -webkit-border-bottom-left-radius: 	@bottom;
+    -moz-border-bottom-left-radius: 	@bottom;
+    border-bottom-left-radius: 			@bottom;
+    -webkit-border-bottom-right-radius: @bottom;
+    -moz-border-bottom-right-radius: 	@bottom;
+    border-bottom-right-radius: 		@bottom;
+    
+    .background-clip();
+}
+
+.border-radius(@top, @bottom) when (@auto-prefixer = true){
+    border-top-right-radius: 			@top;
+    border-bottom-right-radius: 		@bottom;
+    
+    .background-clip();
+}
+
+/******************************************************/
+
+.border-radius(@topright, @bottomright, @bottomleft, @topleft) when not(@auto-prefixer = true){
+	-webkit-border-top-right-radius: 	@topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius: 	@bottomleft;
+	-webkit-border-top-left-radius: 	@topleft;
+	-moz-border-radius-topright: 		@topright;
+	-moz-border-radius-bottomright: 	@bottomright;
+	-moz-border-radius-bottomleft: 		@bottomleft;
+	-moz-border-radius-topleft: 		@topleft;
+	border-top-right-radius: 			@topright;
+	border-bottom-right-radius: 		@bottomright;
+	border-bottom-left-radius: 			@bottomleft;
+	border-top-left-radius: 			@topleft;
+	
+	.background-clip();
+}
+
+.border-radius(@topright, @bottomright, @bottomleft, @topleft) when (@auto-prefixer = true){
+	border-top-right-radius: 			@topright;
+	border-bottom-right-radius: 		@bottomright;
+	border-bottom-left-radius: 			@bottomleft;
+	border-top-left-radius: 			@topleft;
+	
+	.background-clip();
+}
+
+/******************************************************/
+
+.border-top-left-radius(@radius: @rounded-value) when not(@auto-prefixer = true){
+	-webkit-border-top-left-radius: 	@radius;
+    -moz-border-top-left-radius: 		@radius;
+    border-top-left-radius: 			@radius;
+
+    .background-clip();
+}
+
+.border-top-left-radius(@radius: @rounded-value) when (@auto-prefixer = true){
+    border-top-left-radius: 			@radius;
+
+    .background-clip();
+}
+
+/******************************************************/
+
+.border-top-right-radius(@radius: @rounded-value) when not(@auto-prefixer = true){
+	-webkit-border-top-right-radius: 	@radius;
+    -moz-border-top-right-radius: 		@radius;
+    border-top-right-radius: 			@radius;
+
+    .background-clip();
+}
+
+.border-top-right-radius(@radius: @rounded-value) when (@auto-prefixer = true){
+    border-top-right-radius: 			@radius;
+
+    .background-clip();
+}
+
+/******************************************************/
+
+.border-bottom-left-radius(@radius: @rounded-value) when not(@auto-prefixer = true){
+	-webkit-border-bottom-left-radius: 	@radius;
+    -moz-border-bottom-left-radius: 	@radius;
+    border-bottom-left-radius: 			@radius;
+
+    .background-clip();
+}
+
+.border-bottom-left-radius(@radius: @rounded-value) when (@auto-prefixer = true){
+    border-bottom-left-radius: 			@radius;
+
+    .background-clip();
+}
+
+/******************************************************/
+
+.border-bottom-right-radius(@radius: @rounded-value) when not(@auto-prefixer = true){
+	-webkit-border-bottom-right-radius: @radius;
+    -moz-border-bottom-right-radius: 	@radius;
+    border-bottom-right-radius: 		@radius;
+
+    .background-clip();
+}
+
+.border-bottom-right-radius(@radius: @rounded-value) when (@auto-prefixer = true){
+    border-bottom-right-radius: 		@radius;
+
+    .background-clip();
+}

@@ -1,0 +1,82 @@
+/******************************************************
+*
+* MIXINS/_VP-COLUMNS.LESS
+*
+* Description:
+* column-gap, column-count, column-rule
+* and column shortcut prefixed
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+.column-count(@value) when not(@auto-prefixer = true){
+	-webkit-column-count: @value;
+	-moz-column-count: @value;
+	column-count: @value;
+}
+
+.column-count(@value) when (@auto-prefixer = true){
+	column-count: @value;
+}
+
+/******************************************************/
+
+.column-gap(@value)  when not(@auto-prefixer = true){
+	-webkit-column-gap: @value;
+	-moz-column-gap: @value;
+	column-gap: @value;
+}
+
+.column-gap(@value)  when (@auto-prefixer = true){
+	column-gap: @value;
+}
+
+/******************************************************/
+
+.column-rule(@value)  when not(@auto-prefixer = true){
+	-webkit-column-rule: @value;
+	-moz-column-rule: @value;
+	column-rule: @value;
+}
+
+.column-rule(@value)  when (@auto-prefixer = true){
+	column-rule: @value;
+}
+
+/******************************************************/
+
+.column-width(@value)  when not(@auto-prefixer = true){
+	-webkit-column-width: @value;
+	-moz-column-width: @value;
+	column-width: @value;
+}
+
+.column-width(@value)  when (@auto-prefixer = true){
+	column-width: @value;
+}
+
+/******************************************************/
+
+.column-span(@value)  when not(@auto-prefixer = true){
+	-webkit-column-span: @value;
+	-moz-column-span: @value;
+	column-span: @value;
+}
+
+.column-span(@value)  when (@auto-prefixer = true){
+	column-span: @value;
+}
+
+/******************************************************/
+
+.columns(@value)  when not(@auto-prefixer = true){
+	-webkit-columns: @value;
+	-moz-columns: @value;
+	columns: @value;
+}
+
+.columns(@value)  when (@auto-prefixer = true){
+	columns: @value;
+}

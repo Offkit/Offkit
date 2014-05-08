@@ -1,0 +1,85 @@
+/******************************************************
+*
+* COMPONENTS/_NAVIGATION.LESS
+*
+*******************************************************/
+
+/******************************************************
+* INIT NAVIGATIONS VARIABLES
+*******************************************************/
+@nav-font 			: @sans-serif;
+@nav-background 	: @light-grey;
+@nav-padding 		: (@margin-bottom/2) @indent-value;
+@nav-margin 		: @indent-value;
+@nav-link-color 	: @link-color;
+
+/******************************************************
+* NAVIGATION CSS
+*******************************************************/
+.nav {
+	ul { 
+		list-style: none;
+		margin: 0;
+		padding: 0;	
+	}
+	li a { 
+		display: block;	
+		text-decoration: none;
+		&:hover { 
+			background-color: lighten(@light-grey, 9%);
+		}
+	}
+}
+
+
+// horizontal navigation
+.nav-horizontal { 
+	.clearfix;
+	li { 
+		float: left;
+		margin-right: @nav-margin;
+		a{ 
+			padding: @nav-padding;
+			&.nav-active{ 
+				background-color: lighten(@light-grey, 9%);
+				color: @dark-grey;
+				cursor: default;		
+				text-decoration: none;
+			}
+		}
+	}	
+}
+// vertical navigation
+// with pseudo elements as navigation helpers
+.nav-vertical{
+	li a{ 
+		padding: @nav-padding;
+		&.nav-active:after { 
+			content: "You are here";
+			float: right;
+			color: lighten(@light-grey, 4%);
+		}
+		&.nav-active:hover:after{
+			content: "You are here";
+			float: right;
+			color: lighten(@light-grey, 4%);
+		}
+		&.nav-active{
+			color: 	 @dark-grey;
+			background-color: lighten(@light-grey, 9%);
+			cursor: default;
+		}
+		&:hover:after{
+			content: "→";
+			float: right;
+			color:@primary;		
+		}
+		
+		//submenu
+		ul{
+			a{
+				padding-left: @nav-margin;
+			}
+		}
+	}
+}

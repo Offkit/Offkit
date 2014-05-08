@@ -1,0 +1,43 @@
+/******************************************************
+*
+* COMPONENTS/_EMBED-RESPONSIVE.LESS
+*
+* Hack depending on html markup and css
+* for responsive embed objects (youtube videos, vimeo,
+* dailymotion, issue player… etc)
+* 
+* Requiered:
+* _constants.less
+*
+* Default:
+* container for a 16/9 ratio embed
+*
+* HTML markup:
+* <div class="embed-wrapper">
+* 	 embed code goes here
+* </div>
+*
+* Use it as:
+* .embed-wrapper{
+* 	 .embed-responsive(@ratio);
+* }
+* 
+*******************************************************/
+
+//responsives embeds (iframe, embed or objects)
+.embed-responsive(@media-ratio: @mr-169){
+	position: relative;
+	padding-bottom: @media-ratio * 100%;
+	padding-top: 25px;
+	height: 0;
+
+	object,
+	embed,
+	iframe{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}

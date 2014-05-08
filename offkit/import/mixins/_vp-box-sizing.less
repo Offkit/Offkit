@@ -1,0 +1,21 @@
+/******************************************************
+*
+* MIXINS/_VP-BOX-SIZING.LESS
+*
+* Description:
+* box-sizing prefixed (default: border-box)
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+.box-sizing(@size: border-box) when not(@auto-prefixer = true){
+	-moz-box-sizing: 	@size;
+    -webkit-box-sizing: @size;
+    box-sizing: 		@size;
+}
+
+.box-sizing(@size: border-box) when (@auto-prefixer = true){
+    box-sizing: 		@size;
+}

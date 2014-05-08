@@ -1,0 +1,50 @@
+/******************************************************
+*
+* COMPONENTS/NAVIGATION/_NAVIGATION-RESPONSIVE-LARGE.LESS
+*
+* add over effect and hide menu btn for .nav-responsive
+*
+* Requiered:
+* _navigation-responsive-small.less
+*
+*******************************************************/
+
+.nav {
+	li a { 
+		&:hover { 
+			background-color: lighten(@nav-background, 9%);
+		}
+	}
+	
+	&.nav-horizontal { 
+		.clearfix;
+		li { 
+			width: auto;
+			float: left;
+			margin-right: @nav-margin;
+		}	
+	}
+	
+	&.nav-vertical{
+		li a{
+			&:hover:after{
+				content: "→";
+				float: right;
+				color:@link-color;		
+			}
+			
+		}
+	}
+}
+
+.nav-responsive {
+	#close-menu{
+		display: none;
+	}
+	#open-menu{
+		display: none;
+	}
+	ul{
+		height:auto;
+	}
+}

@@ -1,0 +1,317 @@
+/******************************************************
+*
+* _VARIABLES.LESS
+*
+* Description:
+* Init variables for offKit (it might be the first file you want to take a look at)
+*
+* Required:
+* none
+*
+* Documentation:
+* for documentation, please see ||URL||
+*
+* Table of content:
+* 01 - COLORS
+* 02 - SELECTION STYLE
+* 03 - FONTS
+* 04 - GRID
+* 05 - MARGINS AND PADDINGS
+* 06 - FORMS
+* 07 - BUTTONS
+* 08 - TABLES
+* 09 - NAVIGATION
+* 10 - MISC SETTINGS
+* 11 - MISC CONFIGURATION
+*
+*******************************************************/
+
+/******************************************************
+* 01 - BREACKPOINTS
+*******************************************************/
+@mq-smaller 		: 30em; 	// 30 * 16 = 480px 
+@mq-small 			: 48em; 	// 48 * 16 = 768px
+@mq-medium 			: 64em; 	// 64 * 16 = 1024px
+@mq-large 			: 77.5em; 	// 77.5 * 16 = 1240px
+
+/******************************************************
+* 01 - COLORS
+*******************************************************/
+
+// basics
+@white 				: #fff;
+@lighter-grey		: #eee;
+@light-grey			: #ddd;
+@grey   			: #aaa;
+@dark-grey  		: #666;
+@darker-grey 		: #333;
+@black 				: #000;
+
+// backgrounds
+@bg-light 			: #fdfdfd;
+@bg-medium 			: @light-grey;
+@bg-dark 			: #262626;
+
+// main colors
+@primary 			: #FF5C59;
+@secondary 			: #82b4bf;
+
+// font colors
+@body-color 		: #444;
+@heading-color 		: #222;
+
+// wanna go crazy? here are some more
+@red 				: #FF4136;
+@green 				: #2ECC40;
+@blue 				: #0074D9;
+@yellow 			: #FFDC00;
+@purple 			: #B10DC9;
+@orange 			: #FF851B;
+
+// social media
+@twitter-color 		: #00aced;
+@facebook-color 	: #3b5998;
+@googleplus-color 	: #dd4b39;
+@youtube-color 		: #bb0000;
+@linkedin-color 	: #007bb6;
+@instagram-color 	: #517fa4;
+@pinterest-color 	: #cb2027;
+@quora-color 		: #a82400;
+
+// alert colors
+@alert-red 			: #fd795b;
+@alert-blue 		: #e6faff;
+@alert-green 		: #e7fdBd;
+@alert-yellow 		: #fff0aa;
+
+// default button colors
+@btn-default		: @lighter-grey;
+@btn-default-txt	: @body-color;
+
+// primary and secondary
+@btn-primary		: @primary;
+@btn-primary-txt	: @white;
+@btn-secondary		: @secondary;
+@btn-secondary-txt	: @white;
+
+// alert btn
+@btn-green 			: @alert-green;
+@btn-green-txt		: @dark-grey;
+@btn-red		 	: @alert-red;
+@btn-red-txt	 	: @white;
+@btn-yellow 		: @alert-yellow;
+@btn-yellow-txt		: @dark-grey;
+@btn-blue		 	: @alert-blue;
+@btn-blue-txt	 	: @dark-grey;
+
+// border colors
+@light-border 		: @light-grey;
+@border 			: @grey;
+@dark-border 		: @dark-grey;
+
+// link colors
+@link-color 		: @primary;
+@hover-color 		: darken(@primary, 15%);
+
+/******************************************************
+* 01 - SELECTION STYLE
+*******************************************************/
+::selection {
+	background: @primary;
+	color: @white;
+}
+::-moz-selection {
+	background: @primary;
+	color: @white;
+}
+
+/******************************************************
+* 02 - FONTS & type related
+*      used in _type.less
+*******************************************************/
+//put your @font-face here
+
+// set fonts families
+@sans-serif 		: 'helvetica Neue', helvetica,arial,sans-serif; //used for headings
+@serif 				: 'times','times new roman','georgia'; //used for paragraphs
+@mono 				: monaco;
+
+// font unit
+@font-unit			: rem; //acceptedd values [px, em, rem]
+
+// basic size
+@basesize 			:20; // set in pixels
+
+// convert basesize if rem or em
+.set-fontsize() when not(@font-unit = px){
+	@fontsize 		: 1; // give the default em/rem value for @basesize
+}
+.set-fontsize() when (@font-unit = px){
+	@fontsize 		: @basesize;
+}
+.set-fontsize();
+
+
+// typescale ratio
+// type a ratio, use one of the implemented key words or type "none" / false
+// if you want to enter values by hand
+// accepted values 
+// [ "none", false,
+//	 a number, 
+// 	 @golden-ratio, 
+//	 @augmented-fourth, 
+// 	 @major-second, @major-third, @major-sixth, @major-seventh, @major-tenth,
+// 	 @minor-second, @minor-third, @minor-sixth, @minor-seventh,
+//	 @octave,
+// 	 @perfect-fourth, @perfect-fifth
+// ]
+// see documentation for further details
+@typescale-ratio 	: @augmented-fourth; 
+
+// typescale
+// enter value by hand if @typescale-ratio == "none"/false
+// values muste be enter according to the @font-unit (in px, em or rem)
+// any number value at a given size will overide the typographic scale rendered with your ratio at this size
+
+@manual-size-g 				: false; // default is: 5.653;			//	not directly in use, call it with the mixin .size-g();
+@manual-size-f 				: false; // default is: 3.998;			//	h1 -- call it with the mixin .size-f();
+@manual-size-e 				: false; // default is: 2.827;			//	h2 -- call it with the mixin .size-e();
+@manual-size-d 				: false; // default is: 1.999;			//	h3 -- call it with the mixin .size-d();
+@manual-size-c 				: false; // default is: 1.414;			//	h4 (equivalent h4 / h5) -- call it with the mixin .size-c();
+@manual-size-b 				: false; // default is: 1.414;			//	h5 -- call it with the mixin .size-b();
+@manual-size-a 				: false; // default is: @fontsize;		//  p and h6 -- call it with the mixin .size-a();
+@manual-size-small 			: .8; 	 // default is: 0.707; 			//  small size -- call it with the mixin .size-small();
+@manual-size-smaller 		: .65;	 // default is: 0.500; 			//  really small -- call it with the mixin .size-smaller();
+
+// default text style
+@lineheight 		: 1.5; //set lineheight (by default, define basic margin top/bottom for each element)
+@weight 			: 400; //don't use "normal" :)
+@letter-spacing 	: normal; //set base letter spacing
+
+// default paragraph style
+// acceptedd values ["leading", "indent", "rule", "dropcap", "pilcrow"]
+// see documentation for further details
+@paragraph-style 	: "leading"; 
+
+//generate classes for the following paragraph style:
+@paragraph-leading 	: true;
+@paragraph-indent 	: true;
+@paragraph-rule 	: true;
+@paragraph-dropcap 	: true;
+@paragraph-pilcrow 	: true;
+
+// extra (margins)
+@font-margin 		: ((@lineheight + 1em) / 4) ; //used to set margin around type elements (p, headings...etc.)
+
+/******************************************************
+* 02 - GRID
+*	   used in _grid.less
+*******************************************************/
+
+@container-name 	: col; // define column class name
+@wrap-name 			: wrap; // define column container (wrap) class name
+@row-name 			: row; // define column container (row) class name
+@offset-name 		: offset; // define offset column class name
+
+@offset-grid 		: true; // do we want .offset-@index or not ?
+@use-wrap 			: true; // use wrap style grid (.wrap > .col-1.first + .col-11) 
+@use-row 			: true; //use row style grid (.container (can be wrap) > .row > .col-1 + .col-11)
+
+/******************************************************
+* 02 - MARGINS AND PADDINGS
+*      used in _type.less, 
+*              _form.less,
+*              _table.less,
+*              _button.less,
+*              _navigation.less,
+*******************************************************/
+
+@margin-top: 0;
+@margin-bottom: @lineheight * 1em;
+@indent-value: @lineheight * 1em; //used for paragraphs if indentation is activated
+
+// margin for paragraphs
+@p-margin-top: @margin-top;
+@p-margin-bottom: @margin-bottom/2;
+
+// margin for titles
+@title-margin-top: @margin-bottom/2;
+@title-margin-bottom: @margin-bottom/3;
+
+// for forms input
+@input-margin-top: 0;
+@input-margin-bottom: @margin-bottom;
+@input-padding: @margin-bottom/4 @margin-bottom/2;
+@label-margin-bottom: @margin-bottom/4;
+
+// for button & submit
+@btn-margin-top: 0;
+@btn-margin-bottom: @margin-bottom;
+@btn-padding: @margin-bottom/3 @margin-bottom/2;
+@btn-padding-small: @margin-bottom/4 @margin-bottom/3;
+@btn-padding-large: @margin-bottom/2 @margin-bottom;
+
+// for tables
+@table-margin-top: 0;
+@table-margin-bottom: @margin-bottom;
+@table-padding: @margin-bottom/4 @margin-bottom/2;
+
+/******************************************************
+* 02 - FORMS
+*      used in _form.less, 
+*******************************************************/
+@input-bg 			: none;
+@input-bg-color 	: transparent;
+@input-border 		: 1px solid @border;
+@input-border-focus : 1px solid @primary;
+@input-box-focus 	: none;    // example value for glowing outlin: 0 0 4px @primary;
+@input-color 		: @grey;
+
+@input-font 		: @sans-serif;
+@label-font 		: @sans-serif;
+
+/******************************************************
+* 02 - BUTTONS
+*      used in _form.less, 
+*      	       _button.less, 
+*******************************************************/
+@btn-font 			: @sans-serif;
+
+/******************************************************
+* 02 - TABLES
+*      used in _tables.less, 
+*******************************************************/
+@table-header-font 	: @sans-serif;
+@table-body-font 	: @sans-serif;
+
+/******************************************************
+* 02 - MISC SETTINGS
+*******************************************************/
+// default rounded corner value
+// if rounded bool is set to true, this will apply rouned corner some elements (buttons, labels,)
+@rounded-bool 		: true;
+@rounded-value 		: 2px;
+
+// default shadows value
+@shadow-color 		: @grey;
+@shadow-h 			: 0;
+@shadow-v 			: 1px;
+@shadow-blur 		: 2px;
+@shadow-spread 		: 0px;
+
+//default values for transitions
+@transition-property: all;
+@transition-duration: .2s;
+@transition-ease 	: ease-in-out;
+
+//z-index
+@zindexModal   : 9000;
+@zindexOverlay : 8000;
+@zindexHeader  : 7000;
+
+// are you using an AutoPrefixer ? (you should)
+// if true all vender-prefix mixins will return 
+// the base property instead of the prefixed one
+// (.transform(XYZ) will return transform: XYZ; )
+// but seriously… use it :)
+@auto-prefixer: false; 

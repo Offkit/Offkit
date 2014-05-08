@@ -1,0 +1,86 @@
+/******************************************************
+*
+* MIXINS/_VP-FLEX.LESS
+*
+* Description:
+* flexboxes utilities prefixed
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+.display(@flex) when (@flex = "flex"){
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+/******************************************************/
+
+.flex(@values){
+	@old-values: ~`(function(){
+			var arg = "@{values}";
+			return arg.replace(/\s+/, '\x01').split('\x01')[0].substring(1).replace(",", "");
+		}())`;
+
+	-webkit-box-flex: @old-values;
+	-moz-box-flex:  @old-values;
+	-webkit-flex:  @values;
+	-ms-flex:  @values;
+	flex:  @values;
+}
+
+/******************************************************/
+
+.order(@value){
+	-webkit-box-ordinal-group: @value;  
+	-moz-box-ordinal-group: @value;     
+	-ms-flex-order: @value;     
+	-webkit-order: @value;  
+	order: @value;
+}
+
+/******************************************************/
+
+.align-self(@value){
+	-webkit-align-self: @value;
+	-ms-align-self: @value;
+	align-self: @value;
+}
+
+/******************************************************/
+
+.flex-grow(@value){
+	-webkit-flex-grow: @value;
+	flex-grow: @value;
+}
+
+/******************************************************/
+
+.flex-shrink(@value){
+	-webkit-flex-shrink: @value;
+	flex-shrink: @value;
+}
+
+/******************************************************/
+
+.flex-basis(@value){
+
+}
+
+/******************************************************/
+
+.flex-wrap(@value){
+	-webkit-flex-wrap: @value;
+	-ms-flex-wrap: @value;
+	flex-wrap: @value;
+}
+
+/******************************************************/
+
+.flex-direction(@value){
+
+}

@@ -1,0 +1,49 @@
+/******************************************************
+*
+* MIXINS/_VP-FONT-FEATURE.LESS
+*
+* Description:
+* font-feature-settings prefixed
+* --
+* font-feature-settings : normal | <feature-tag-value> [, <feature-tag-value>]*
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+* Default:
+* liga
+*
+* Note:
+* check this article for complete list
+* http://www.microsoft.com/typography/otspec/featurelist.htm
+*
+* Todo: afinate regex
+*
+*******************************************************/
+
+.font-feature-settings(@valueX: "liga", ...) when not(@auto-prefixer = true){
+	@value: ~`'@{arguments}'.replace(/[\[\]]|\,\sX/g, '')`;
+
+	-moz-font-feature-settings: @value;
+	-ms-font-feature-settings: @value;
+	-o-font-feature-settings: @value;
+	-webkit-font-feature-settings: @value;
+	font-feature-settings: @value;
+}
+
+.font-feature-settings(@valueX: "liga", ...) when (@auto-prefixer = true){
+	@value: ~`'@{arguments}'.replace(/[\[\]]|\,\sX/g, '')`;
+
+	font-feature-settings: @value;
+}
+
+/******************************************************/
+
+//small caps
+.font-feature-smcp(){
+	.font-feature-settings("smcp");
+}
+
+.font-feature-fractions(){
+	.font-feature-settings("frac");
+}

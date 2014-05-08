@@ -1,0 +1,800 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Stylesheet Reference</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+			body, html{
+                padding: 0;
+                margin: 0;
+            }
+
+            .sr-inner-wrapper{
+                width: 95%;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #sr-header-wrapper{
+                background-color: #FF5C59;
+                padding-bottom: 4em;
+                margin-bottom: 4em;
+                position: relative;
+            }
+            
+            #sr-header-wrapper h1,
+            #sr-header-wrapper h2{
+                color: whitesmoke;
+            }
+
+            #sr-loader{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #FF5C59;
+                color: whitesmoke;
+                font-size: 16px;
+                text-align: center;
+                font-weight: 200;
+                font-family: sans-serif;
+            }
+            #sr-loader .sr-spinner{
+                    width: 48px;
+                    height: 48px;
+                    position: absolute;
+                    background: whitesmoke;
+                    top: 50%; left: 50%;
+                    margin-top: -24px; margin-left: -24px;
+                    -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+                    animation: rotateplane 1.2s infinite ease-in-out;
+                }
+
+                @-webkit-keyframes rotateplane {
+                    0% { -webkit-transform: perspective(120px) }
+                    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+                    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+                }
+
+                @keyframes rotateplane {
+                    0% {
+                        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                    } 50% {
+                        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                    } 100% {
+                        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                    }
+                }
+
+            #sr-error-msg{
+                color: red; padding: .5em;
+                background: whitesmoke;
+                font-size: 12px;
+                font-family: sans-serif;
+                text-align: center;
+                margin:  0 0 8px 0;
+                display: none;
+            }
+            #sr-error-msg p{
+                max-width: 600px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            #sr-colors-list{
+                list-style: none;
+            }
+            #sr-colors-list li{
+                padding: .5em .5em .5em 1em;
+            }
+            
+            #sr-grid-form{ position: relative; }
+           
+            #sr-grid-form label{
+                font-size: 14px;
+            }
+            #sr-grid-form label span{
+                font-size: 12px;
+            }
+            #sr-grid-form input{
+                width: 100%;
+                margin-bottom: 1.5em;
+            }
+
+			.sr-column{
+				height: 24px;
+				color: whitesmoke;
+				background: #444;
+				margin-bottom: 6px;
+				text-align: center;
+				font-size: 12px;
+				padding: 3px;
+			}
+
+            .sr-example{
+                /*background: #F8F8F8;*/
+                border: 1px solid #EEE;
+                padding: 5%;
+                margin-bottom: 1.5em;
+            }
+            .sr-example-title{
+                font-size: 14px;
+                text-transform: uppercase;
+                color: tomato;
+                font-family: serif;
+                font-weight: 400;
+                margin-bottom: 1.5em;
+            }
+            .sr-example.sr-none  .sr-example-title{
+                text-decoration: line-through;
+            }
+            .sr-example.sr-none p{
+                display: none;
+            }
+            .sr-code{
+                font-size: 12px;
+            }
+            
+            .sr-separator{
+                width: 100%;
+                border:none;
+                height: 4px;
+                background-color: #FF5C59;
+                margin: 2em 0;
+            }
+            article{
+                margin-bottom: 4em;
+                margin-top: 4em;
+            }
+            
+            .sr-merci{
+                text-align: center;
+            }
+
+            .sr-merci svg{ 
+                width: 48px;
+                height: 48px;
+            }
+
+            @media (min-width: 768px) {
+                .sr-col-50{
+                    float: left;
+                    width: 48%;
+                }
+                article .sr-col-50.sr-first{
+                    margin-right: 4%;
+                }
+                 #sr-grid-form div,
+            #sr-grid-form #sr-submit-gf{
+                width: 25%;
+                float: left;
+            }
+            #sr-grid-form #sr-submit-gf{
+                position: absolute;
+                bottom: 0;
+            }
+            #sr-grid-form input{
+                width: 80%;
+            }
+            }
+        </style>
+
+        <!-- import offkit -->
+        <link rel="stylesheet/less" type="text/less" href="../offkit/style.less">
+
+    </head>
+    <body>
+        <div id="sr-loader">
+            <div class="sr-spinner">
+            </div>
+            <article class="sr-merci">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 74 74" enable-background="new 0 0 74 74" xml:space="preserve">
+                    <g id="offkit-logo" fill="whitesmoke">
+                        <g>
+                            <path d="M37,73.8c-20.4,0-37-16.6-37-37s16.6-37,37-37s37,16.6,37,37S57.5,73.8,37,73.8z M37,2.8c-18.8,0-34,15.3-34,34
+                                s15.3,34,34,34s34-15.3,34-34S55.8,2.8,37,2.8z"/>
+                        </g>
+                        <rect x="27.2" y="48.8" width="20" height="3"/>
+                        <path d="M29.8,20.3h3c0,0.1-0.1,0.3-0.2,0.4c-0.1,0.2-0.2,0.3-0.2,0.5v9.4l9.4-10.5c0.5,0.1,1.2,0.2,1.9,0.2h0.9L36.2,30l9.1,12.7
+                            L42,42.9l-7.7-11.4l-1.8,1.9v9.3h-2.7V20.3z"/>
+                    </g>
+                </svg>
+           </article>
+        </div>
+    <div id="sr-wrapper" style="display:none;">
+        <div id="sr-header-wrapper" class="clearfix">
+                <p id="sr-error-msg"></p>
+            <div class="sr-inner-wrapper">
+    			<header>
+    				<h1>Stylesheet Reference</h1>
+    				<h2>your styles all wrapped in the same place</h2>
+    			</header>
+            </div>
+        </div>
+        
+
+			<article id="grid">
+                <div class="sr-inner-wrapper">
+    				<h3>grid system</h3>
+        				<form action="#" id="sr-grid-form" class="clearfix">
+                            <div>
+            					<label for="sr-maxnum-gf">your maximum collumn count <br><span>default 12</span></label>
+            					<input type="number" name="maxnum-gf" id="sr-maxnum-gf" value="12">
+                            </div>
+                            <div>
+            					<label for="sr-wrap-gf">your wrapper class name <br><span>default wrap</span></label>
+            					<input type="text" name="wrap-gf" id="sr-wrap-gf" value="wrap">
+                            </div>
+                            <div>
+            					<label for="sr-col-gf">your column class name <br><span>default col</span></label>
+            					<input type="text" name="col-gf" id="sr-col-gf" value="col">
+                            </div>
+
+        					<input type="submit" id="sr-submit-gf" value="validate">
+        				</form>
+				</div>
+				<div id="sr-grid-generated" class="clearfix"></div>
+                <div class="sr-inner-wrapper">
+				    <pre id="sr-grid-code" class="sr-code"></pre>
+
+                    <div class="sr-separator"></div>
+               </div>
+                
+			</article>
+        
+        <div class="sr-inner-wrapper">
+
+			<article id="sr-font-settings">
+				<h3>font settings</h3>
+                <h4>headings</h4>
+                <div class="sr-example">
+                    <p class="sr-example-title">headings</p>
+                    <h1>heading h1</h1>
+                    <h2>heading h2</h2>
+                    <h3>heading h3</h3>
+                    <h4>heading h4</h4>
+                    <h5>heading h5</h5>
+                    <h6>heading h6</h6>
+                </div>
+                <h4>paragraphs</h4>
+                <div class="sr-example">
+                    <h6 class="sr-example-title">default paragraphs</h6>
+                    <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can.</p>
+                    <p>This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+                    <p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+                </div>
+                <div id="sr-paragrph-indent" class="sr-example indent">
+                    <h6 class="sr-example-title">indented paragraphs</h6>
+                    <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can.</p>
+                    <p>This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+                    <p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+                </div>
+                <div id="sr-paragrph-rule" class="sr-example rule">
+                    <h6 class="sr-example-title">ruled paragraphs</h6>
+                    <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can.</p>
+                    <p>This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+                    <p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+                </div>
+                <div id="sr-paragrph-dropcap" class="sr-example dropcap">
+                    <h6 class="sr-example-title">paragraphs with dropcap</h6>
+                    <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can.</p>
+                    <p>This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+                    <p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+                </div>
+                <div id="sr-paragrph-pilcrow" class="sr-example pilcrow">
+                    <h6 class="sr-example-title">paragraphs with pilcrow</h6>
+                    <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can.</p>
+                    <p>This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+                    <p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+                </div>
+                <div class="sr-separator"></div>
+                <h4>lists</h4>
+                <div class="sr-example sr-col-50 sr-first">
+                    <h6 class="sr-example-title">unordered list</h6>
+                    <ul>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                        <li>
+                            item 4
+                            <ul>
+                                <li>item a</li>
+                                <li>item b</li>
+                            </ul>
+                        </li>
+                        <li>item 5</li>
+                        <li>item 6</li>
+                    </ul>
+                </div>
+                <div class="sr-example sr-col-50">
+                    <h6 class="sr-example-title">ordered list</h6>
+                    <ol>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                        <li>
+                            item 4
+                            <ol>
+                                <li>item a</li>
+                                <li>item b</li>
+                            </ol>
+                        </li>
+                        <li>item 5</li>
+                        <li>item 6</li>
+                    </ol>
+                </div>
+                <div class="sr-example sr-col-50 sr-first">
+                    <h6 class="sr-example-title">custom unordered list</h6>
+                    <ul class="custom">
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                        <li>
+                            item 4
+                            <ul>
+                                <li>item a</li>
+                                <li>item b</li>
+                            </ul>
+                        </li>
+                        <li>item 5</li>
+                        <li>item 6</li>
+                    </ul>
+                </div>
+                <div class="sr-example sr-col-50">
+                    <h6 class="sr-example-title">definition list</h6>
+                    <dl  class="dictionary-style">
+                            <dt>title for description</dt>
+                                <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dd>
+                                <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dd>
+                            <dt>title for description</dt>
+                                <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dd>
+                        </dl>
+                </div>
+			</article>
+            <article id="sr-forms" class="clearfix">
+                        <div class="sr-separator"></div>
+
+                <h3>forms</h3>
+                <div class="sr-example">
+                    <h6 class="sr-example-title">A simple Form</h6>
+                    <form action="#">
+                            <label for="">a label</label>
+                            <input type="text" placeholder="a placeholder">
+                            <label for="">a label <span>with a span for infos</span></label>
+                            <input type="text" value="a value">
+                            <label for="">a label <span>for a disabled input</span></label>
+                            <input type="text" placeholder="a placeholder" disabled>
+                        <input type="submit" value="validate">
+                    </form>
+                </div>
+                 <div class="sr-separator"></div>
+                <div class="sr-col-50 sr-first">
+                    <div class="sr-example ">
+                        <h6 class="sr-example-title">Checkboxes</h6>
+                        <form action="#">
+                                <input type="checkbox" name="chbx-grp" id="chbx-1"><label for="chbx-1">checkbox 1</label>
+                                <input type="checkbox" name="chbx-grp" id="chbx-2"><label for="chbx-2">checkbox 2</label>
+                                <input type="checkbox" name="chbx-grp" id="chbx-3"><label for="chbx-3">checkbox 3</label>
+                        </form>
+  
+                    </div>
+<pre class="sr-code">
+&lt;input type="checkbox" name="chbx-grp" id="chbx-1"&gt;
+&lt;label for="chbx-1"&gt;checkbox 1&lt;/label>
+</pre>
+                </div>
+                <div class="sr-col-50">
+                    <div class="sr-example">
+                        <h6 class="sr-example-title">Inline Checkboxes</h6>
+                        <form action="#">
+                                <label for="chbx-1-a"><input type="checkbox" name="chbx-grp-2" id="chbx-1-a">checkbox 1</label>
+                                <label for="chbx-2-a"><input type="checkbox" name="chbx-grp-2" id="chbx-2-a">checkbox 2</label>
+                                <label for="chbx-3-a"><input type="checkbox" name="chbx-grp-2" id="chbx-3-a">checkbox 3</label>
+                        </form>
+                    </div>
+<pre class="sr-code">
+&lt;label for="chbx-1"&gt;
+    &lt;input type="checkbox" name="chbx-grp" id="chbx-1"&gt;
+    checkbox 1
+&lt;/label&gt;
+
+|| or ||
+
+&lt;input type="checkbox" name="chbx-grp" id="chbx-1" class="inline"&gt;
+&lt;label for="chbx-1"&gt;checkbox 1&lt;/label
+</pre>                
+                </div>
+
+                <div class="sr-col-50 sr-first">
+                    <div class="sr-example ">
+                        <h6 class="sr-example-title">Radios</h6>
+                        <form action="#">
+                                <input type="radio" name="rdio-grp" id="rdio-1"><label for="rdio-1">radios 1</label>
+                                <input type="radio" name="rdio-grp" id="rdio-2"><label for="rdio-2">radios 2</label>
+                                <input type="radio" name="rdio-grp" id="rdio-3"><label for="rdio-3">radios 3</label>
+                        </form>
+  
+                    </div>
+<pre class="sr-code">
+&lt;input type="radio" name="rdio-grp" id="rdio-1"&gt;
+&lt;label for="rdio-1"&gt;radios 1&lt;/label>
+</pre>
+                </div>
+                <div class="sr-col-50">
+                    <div class="sr-example">
+                        <h6 class="sr-example-title">Inline Radios</h6>
+                        <form action="#">
+                                <label for="rdio-1-a"><input type="radio" name="rdio-grp-2" id="rdio-1-a">radios 1</label>
+                                <label for="rdio-2-a"><input type="radio" name="rdio-grp-2" id="rdio-2-a">radios 2</label>
+                                <label for="rdio-3-a"><input type="radio" name="rdio-grp-2" id="rdio-3-a">radios 3</label>
+                        </form>
+                    </div>
+<pre class="sr-code">
+&lt;label for="rdio-1"&gt;
+    &lt;input type="radio" name="rdio-grp" id="rdio-1"&gt;
+    radios 1
+&lt;/label&gt;
+
+|| or ||
+
+&lt;input type="radio" name="rdio-grp" id="rdio-1" class="inline"&gt;
+&lt;label for="rdio-1"&gt;radios 1&lt;/label
+</pre>                
+                </div>
+            </article>
+            <div class="sr-separator"></div>
+
+            <article id="sr-tables" class="clearfix">
+                <h3>tables</h3>
+                <div class="sr-example">
+                    <div class="sr-example-title">A simple table</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>job</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>John</td>
+                                <td>Carpenter</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Ismael</td>
+                                <td>Sailor</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Albert</td>
+                                <td>Physisist</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sr-example">
+                    <div class="sr-example-title">A striped table</div>
+                    <table class="select striped">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>job</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>John</td>
+                                <td>Carpenter</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Ismael</td>
+                                <td>Sailor</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Albert</td>
+                                <td>Physisist</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sr-example">
+                    <div class="sr-example-title">A striped table with highlights</div>
+                    <table class="select striped">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>job</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td class="error">John</td>
+                                <td>Carpenter</td>
+                            </tr>
+                            <tr>
+                                <td class="warning">1</td>
+                                <td>Ismael</td>
+                                <td>Sailor</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Albert</td>
+                                <td class="info">Physisist</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+            <div class="sr-separator"></div>
+
+            <article id="sr-buttons" class="clearfix">
+                <h3>buttons</h3>
+                <div class="sr-example">
+                    <div class="sr-example-title">small buttons</div>
+                    <a href="#" class="btn btn-small">button</a>
+                    <a href="#" class="btn btn-small btn-primary">button primary</a>
+                    <a href="#" class="btn btn-small btn-secondary">button secondary</a>
+                    <br>
+                    <a href="#" class="btn btn-small btn-red">button red</a>
+                    <a href="#" class="btn btn-small btn-blue">button blue</a>
+                    <a href="#" class="btn btn-small btn-green">button green</a>
+                    <a href="#" class="btn btn-small btn-yellow">button yellow</a>
+                </div>
+                <div class="sr-example">
+                    <div class="sr-example-title">medium/default buttons</div>
+                    <a href="#" class="btn">button</a>
+                    <a href="#" class="btn btn-primary">button primary</a>
+                    <a href="#" class="btn btn-secondary">button secondary</a>
+                    <br>
+                    <a href="#" class="btn btn-red">button red</a>
+                    <a href="#" class="btn btn-blue">button blue</a>
+                    <a href="#" class="btn btn-green">button green</a>
+                    <a href="#" class="btn btn-yellow">button yellow</a>
+                </div>
+                <div class="sr-example">
+                    <div class="sr-example-title">large buttons</div>
+                    <a href="#" class="btn btn-large">button</a>
+                    <a href="#" class="btn btn-large btn-primary">button primary</a>
+                    <a href="#" class="btn btn-large btn-secondary">button secondary</a>
+                    <br>
+                    <a href="#" class="btn btn-large btn-red">button red</a>
+                    <a href="#" class="btn btn-large btn-blue">button blue</a>
+                    <a href="#" class="btn btn-large btn-green">button green</a>
+                    <a href="#" class="btn btn-large btn-yellow">button yellow</a>
+                </div>
+            </article>
+            <div class="sr-separator"></div>
+
+            <article id="sr-navs" class="clearfix">
+                <h3>navigation</h3>
+                <div class="sr-example">
+                    <div class="sr-example-title">a simple navigation</div>
+                    <nav class="nav">
+                        <ul>
+                            <li><a href="#">item 1</a></li>
+                            <li><a href="#">item 2</a></li>
+                            <li><a href="#">item 3</a></li>
+                            <li><a href="#">item 4</a></li>
+                            <li><a href="#">item 5</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="sr-example">
+                    <div class="sr-example-title">a simple horizontal navigation</div>
+                    <nav class="nav nav-horizontal">
+                        <ul>
+                            <li><a href="#">item 1</a></li>
+                            <li><a href="#">item 2</a></li>
+                            <li><a href="#">item 3</a></li>
+                            <li><a href="#">item 4</a></li>
+                            <li><a href="#">item 5</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </article>
+            <div class="sr-separator"></div>
+ 
+            <article id="sr-colors" class="clearfix">
+                <h3>colors</h3>
+                <ul id="sr-colors-list"></ul>
+            </article>    
+
+            <article class="sr-merci">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 74 74" enable-background="new 0 0 74 74" xml:space="preserve">
+                    <g id="offkit-logo">
+                        <g>
+                            <path d="M37,73.8c-20.4,0-37-16.6-37-37s16.6-37,37-37s37,16.6,37,37S57.5,73.8,37,73.8z M37,2.8c-18.8,0-34,15.3-34,34
+                                s15.3,34,34,34s34-15.3,34-34S55.8,2.8,37,2.8z"/>
+                        </g>
+                        <rect x="27.2" y="48.8" width="20" height="3"/>
+                        <path d="M29.8,20.3h3c0,0.1-0.1,0.3-0.2,0.4c-0.1,0.2-0.2,0.3-0.2,0.5v9.4l9.4-10.5c0.5,0.1,1.2,0.2,1.9,0.2h0.9L36.2,30l9.1,12.7
+                            L42,42.9l-7.7-11.4l-1.8,1.9v9.3h-2.7V20.3z"/>
+                    </g>
+                </svg>
+                 <p>Merci for using offkit</p>
+           </article>   	
+        </div>
+    </div>    
+        <!-- import less.js -->
+        <script src="js/less-1.7.0.min.js"></script>
+        <!-- import jquery.js (will be easier) -->
+        <script src="js/jquery-1.11.1.min.js"></script>
+
+
+        <script>
+            /****************************
+             * VARIABLES
+             ****************************/
+            var errorMsg = "",
+                varList = {},
+                colorList = {};
+            
+            var $gridForm = $( "#sr-grid-form" ),
+                $gridGen = $( "#sr-grid-generated" ),
+                $gridCod = $( "#sr-grid-code" );
+
+            /****************************
+             * INIT
+             ****************************/
+
+            // as less.js does not fire any events on load
+            // set timeout 2sec, hide loader and display page
+            var st = setTimeout( function(){
+                        $( "#sr-loader" ).fadeOut();
+                        $( "#sr-wrapper" ).fadeIn();
+                    }, 2000);
+
+            //change size of the header
+            $( "#sr-header-wrapper" ).height($(window).height()*0.8);
+
+            $(window).resize(function(){
+                $( "#sr-header-wrapper" ).height($(window).height()*0.8);
+            });
+
+            // get all variables from offkit
+            var parser = new(less.Parser);
+
+            $.get("../offkit/import/_variables.less", function( data ) {
+                parser.parse(data, function (e, tree) {
+                    var variables = tree.variables();
+
+                    for (i in variables) {
+                        var varname = variables[i].name;
+                        var varvalue = variables[i].value;
+                        varList[varname.replace(/@|-/g, "")] = {name : varname, value : varvalue};
+                        //$("#sr-varlist").append("<li>"+varname + ":" + varvalue.expression+"</li>");
+                    }
+                    changeClasses();
+                });
+            }).fail(function() {
+                errorMsg = "<p>hu, we couldn't localise you <code>_variables.less</code> file. For this reason, you won't be able to see the list of your colo variables and the colors of the build-in interface won't match your theme</p>";
+                $( "#sr-error-msg" ).html(errorMsg).show();
+            });
+            
+            function changeClasses() {
+                var wrapname = varList.wrapname.value.value[0].value[0].value,
+                    containername = varList.containername.value.value[0].value[0].value,
+                    rowname = varList.rowname.value.value[0].value[0].value;
+                // change class form ".wrap" to ".whatever" if needed
+                if(wrapname !== "wrap"){
+                    $( ".wrap" ).removeClass("wrap").addClass(wrapname)
+                    $gridForm.find( "#sr-wrap-gf" ).val(wrapname);
+                }
+
+                // change classes from ".col-*" to ".whatever-*" if needed
+                if(containername !== "col"){
+                    $( ".col" ).removeClass("col").addClass(containername);
+                    $gridForm.find( "#sr-col-gf" ).val(containername);
+                }
+
+                // change class from ".row" to ".whatever" if needed
+                if(rowname !== "row"){
+                    $( ".row" ).removeClass("row").addClass(rowname)
+                }
+
+                // disable <p> for indent rule dropcaps if needed
+                if(varList.paragraphindent.value.value[0].value[0].value !== "true"){
+                    $( "#sr-paragrph-indent" ).addClass( "sr-none" );
+                }
+                if(varList.paragraphrule.value.value[0].value[0].value !== "true"){
+                    $( "#sr-paragrph-rule" ).addClass( "sr-none" );
+                }
+                if(varList.paragraphdropcap.value.value[0].value[0].value !== "true"){
+                    $( "#sr-paragrph-dropcap" ).addClass( "sr-none" );
+                }
+                if(varList.paragraphpilcrow.value.value[0].value[0].value !== "true"){
+                    $( "#sr-paragrph-pilcrow" ).addClass( "sr-none" );
+                }
+
+                //add color styles
+                generateColorList();
+                for(var key in colorList){
+                    var newColor = '<li style="background-color: rgb('+colorList[key].value+');">'+colorList[key].name+'</li>';
+                    $( "#sr-colors-list" ).append(newColor);
+                }
+
+
+                //add @bg-lilght to background
+                $( "body" ).css( "background-color", 'rgb('+colorList.bglight.value+')' );
+
+                //change primary color to match the current offkit one
+                var primary = colorList.primary.value;
+                $( ".sr-separator, #sr-header-wrapper" ).css("background-color", 'rgb('+primary+')');
+                $( ".sr-example-title" ).css("color", 'rgb('+primary+')');
+
+            }
+            
+            function generateColorList() {
+                for(var key in varList) {
+                    if('rgb' in varList[key].value.value[0].value[0]) {
+                        colorList[key] = {
+                            value: varList[key].value.value[0].value[0].rgb[0]+','+varList[key].value.value[0].value[0].rgb[1]+','+varList[key].value.value[0].value[0].rgb[2],
+                            name: varList[key].name
+                        }
+                    }
+                }
+            }
+
+        	   
+
+        		//init
+        		generateGrid();
+
+        		//init events
+        		$gridForm.on('submit',function(e){
+        			e.preventDefault();
+        			generateGrid();
+        		});
+
+        		//generate classes and mark up for your grid
+        		function generateGrid(){
+        			var colCnt = $gridForm.find( "#sr-maxnum-gf" ).val(),
+        				wrapnm = $gridForm.find( "#sr-wrap-gf" ).val(),
+        				colnm = $gridForm.find( "#sr-col-gf" ).val();
+
+                    if(!$gridGen.hasClass(wrapnm))
+                        $gridGen.addClass(wrapnm)
+        			$gridGen.empty();
+
+
+        			for( i=colCnt; i>0; i-- ){
+        				var $newCol = '<div class="'+colnm+'-'+i+' first sr-column">'+colnm+' '+i+'</div>';
+
+        				if( colCnt!==i && (colCnt/i) % 1 !== 0 ){
+        					$newCol += '<div class="'+colnm+'-'+(colCnt-i)+' sr-column">'+colnm+' '+(colCnt-i)+'</div>';
+        				}else if( colCnt!==i && (colCnt/i) % 1 == 0 ){
+        					for( j=0; j<(colCnt/i)-1; j++ ){
+        						$newCol += '<div class="'+colnm+'-'+i+' sr-column">'+colnm+' '+i+'</div>';
+        					}
+        				}
+
+        				$gridGen.append($newCol);
+        			}
+
+        			var codeTxt = '<div class="'+wrapnm+'">\n'+
+        							'	<div class="'+colnm+'-1 first">…</div>\n'+
+        							'	<div class="'+colnm+'-'+colCnt+'">…</div>\n'+
+        							'</div>';
+
+        			$gridCod.text(codeTxt);
+        		}
+
+        </script>
+    </body>
+</html>

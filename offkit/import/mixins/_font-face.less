@@ -1,0 +1,20 @@
+/******************************************************
+*
+* MIXINS/_FONT-FACE.LESS
+*
+* Description:
+* @font-face shortcut
+*
+* TO BE COMPLETED
+*
+*******************************************************/
+
+.font-face(@font-name, @font-path, @font-weight:normal, @font-stye:normal){
+	@font-face {
+		font-family: @font-name;
+		src: url("@{font-path}.ttf") format("truetype");
+		font-weight: @font-weight;
+		font-style: @font-style;
+	}
+};
+
