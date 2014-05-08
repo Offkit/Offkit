@@ -1,0 +1,33 @@
+/******************************************************
+*
+* MIXINS/_VP-PERSPECTIVE.LESS
+*
+* Description:
+*
+* Requiered:
+* _variables.less (@auto-perfixer)
+*
+*******************************************************/
+
+
+.perspective(@value) when not(@auto-prefixer = true){
+    -webkit-perspective:  @value;
+    -moz-perspective:     @value;
+    perspective:          @value;
+}
+
+.perspective(@value) when (@auto-prefixer = true){
+    perspective:          @value;
+}
+
+/******************************************************/
+
+.perspective-origin(@value) when not(@auto-prefixer = true){
+    -webkit-perspective-origin:  @value;
+    -moz-perspective-origin:     @value;
+    perspective-origin:          @value;
+}
+
+.perspective-origin(@value) when (@auto-prefixer = true){
+    perspective-origin:          @value;
+}
