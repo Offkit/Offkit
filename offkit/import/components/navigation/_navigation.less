@@ -20,10 +20,10 @@
 	ul { 
 		list-style: none;
 		margin: 0;
-		padding: 0;	
+		padding: 0;
 	}
 	li a { 
-		display: block;	
+		display: block;
 		text-decoration: none;
 		&:hover { 
 			background-color: lighten(@light-grey, 9%);
@@ -38,12 +38,12 @@
 	li { 
 		float: left;
 		margin-right: @nav-margin;
-		a{ 
+		a { 
 			padding: @nav-padding;
-			&.nav-active{ 
+			&.nav-active { 
 				background-color: lighten(@light-grey, 9%);
 				color: @dark-grey;
-				cursor: default;		
+				cursor: default;
 				text-decoration: none;
 			}
 		}
@@ -51,33 +51,33 @@
 }
 // vertical navigation
 // with pseudo elements as navigation helpers
-.nav-vertical{
-	li a{ 
+.nav-vertical {
+	li a { 
 		padding: @nav-padding;
 		&.nav-active:after { 
 			content: "You are here";
 			float: right;
 			color: lighten(@light-grey, 4%);
 		}
-		&.nav-active:hover:after{
+		&.nav-active:hover:after {
 			content: "You are here";
 			float: right;
 			color: lighten(@light-grey, 4%);
 		}
-		&.nav-active{
+		&.nav-active {
 			color: 	 @dark-grey;
 			background-color: lighten(@light-grey, 9%);
 			cursor: default;
 		}
-		&:hover:after{
+		&:hover:after {
 			content: "→";
 			float: right;
-			color:@primary;		
+			color:@primary;
 		}
 		
-		//submenu
-		ul{
-			a{
+		// submenu
+		ul {
+			a {
 				padding-left: @nav-margin;
 			}
 		}

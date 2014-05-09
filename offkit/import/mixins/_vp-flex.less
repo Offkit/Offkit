@@ -5,12 +5,14 @@
 * Description:
 * flexboxes utilities prefixed
 *
+* IN PROCESS
+*
 * Requiered:
 * _variables.less (@auto-perfixer)
 *
 *******************************************************/
 
-.display(@flex) when (@flex = "flex"){
+.display(@flex) when (@flex = "flex") {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -20,8 +22,8 @@
 
 /******************************************************/
 
-.flex(@values){
-	@old-values: ~`(function(){
+.flex(@values) {
+	@old-values: ~`(function() {
 			var arg = "@{values}";
 			return arg.replace(/\s+/, '\x01').split('\x01')[0].substring(1).replace(",", "");
 		}())`;
@@ -35,7 +37,7 @@
 
 /******************************************************/
 
-.order(@value){
+.order(@value) {
 	-webkit-box-ordinal-group: @value;  
 	-moz-box-ordinal-group: @value;     
 	-ms-flex-order: @value;     
@@ -45,7 +47,7 @@
 
 /******************************************************/
 
-.align-self(@value){
+.align-self(@value) {
 	-webkit-align-self: @value;
 	-ms-align-self: @value;
 	align-self: @value;
@@ -53,27 +55,27 @@
 
 /******************************************************/
 
-.flex-grow(@value){
+.flex-grow(@value) {
 	-webkit-flex-grow: @value;
 	flex-grow: @value;
 }
 
 /******************************************************/
 
-.flex-shrink(@value){
+.flex-shrink(@value) {
 	-webkit-flex-shrink: @value;
 	flex-shrink: @value;
 }
 
 /******************************************************/
 
-.flex-basis(@value){
+.flex-basis(@value) {
 
 }
 
 /******************************************************/
 
-.flex-wrap(@value){
+.flex-wrap(@value) {
 	-webkit-flex-wrap: @value;
 	-ms-flex-wrap: @value;
 	flex-wrap: @value;
@@ -81,6 +83,6 @@
 
 /******************************************************/
 
-.flex-direction(@value){
+.flex-direction(@value) {
 
 }

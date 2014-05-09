@@ -15,17 +15,22 @@
 *
 *******************************************************/
 
-.size(@square) when (isnumber(@square)){
-    width: @square;
-    height: @square;
+// square
+.size(@square) when (isnumber(@square)) {
+	width: @square;
+	height: @square;
 }
 
-.size(@width, @height) when (isnumber(@width)) and (isnumber(@height)){
+// rectangle
+.size(@width, @height) when (isnumber(@width)) and (isnumber(@height)) {
 	width: @width;
 	height: @height;
 }
 
-.size(@index, @index2, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth) when (isnumber(@width)) and (isnumber(@height)){
+// square/rectangle with grid size
+// use it with
+// .size( column count for width, column count for height, column width, column gutter width);
+.size(@index, @index2, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth) when (isnumber(@width)) and (isnumber(@height)) {
 	width: (@columnWidth * @index) + (@gutterWidth * (@index - 1));
 	height: (@columnWidth * @index2) + (@gutterWidth * (@index2 - 1));
 }

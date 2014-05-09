@@ -13,13 +13,13 @@
 *
 *******************************************************/
 
-.backface-visibility(@value: hidden) when not(@auto-prefixer = true){
+.backface-visibility(@value: hidden) when not(@auto-prefixer = true) {
 	-webkit-backface-visibility: @value;
 	-ms-backface-visibility: @value;
 	backface-visibility: @value;
 }
 
-.backface-visibility(@value: hidden) when (@auto-prefixer = true){
+.backface-visibility(@value: hidden) when (@auto-prefixer = true) {
 	-webkit-backface-visibility: @value;
 	-ms-backface-visibility: @value;
 	backface-visibility: @value;

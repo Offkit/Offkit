@@ -13,20 +13,20 @@
 *
 *******************************************************/
 
-//init (set margins)
-form{
+// init (set margins)
+form {
 	margin: @margin-top 0 @margin-bottom;
 }
-	
-	//fieldset
-	fieldset{
+
+	// fieldset
+	fieldset {
 		padding: 0; margin: @margin-top 0 @margin-bottom;
 		border: none;
 		font-family: @label-font;
-		legend{
+		legend {
 			display: block;
 			width: 100%;
-			.size-b;
+			.size-b();
 			padding: 0;
 			border-bottom: 1px solid @border;
 		}
@@ -34,13 +34,13 @@ form{
 	
 	input,
 	textarea,
-	select{
+	select {
 		font-family: @input-font;
 	}
 
-	//input
+	// input
 	input,
-	textarea{
+	textarea {
 		display: block;
 		margin-bottom: @input-margin-bottom;
 		padding: @input-padding;
@@ -50,61 +50,54 @@ form{
 		.init-rounded();
 		.box-sizing();
 		.transition(border, .4s);
-		&:focus{
+		&:focus {
 			box-shadow: @input-box-focus;
 			outline: none;
 			outline: thin dotted \9; /* IE6-9 */
 			border: @input-border-focus;
 		}
-		&:hover{
+		&:hover {
 			border: @input-border-focus;
 		}
-		&.disabled{
-			
-		}
-	}
-		
-	//detailed styles
-	
-	input[type="datetime"],
-	input[type="datetime-local"],
-	input[type="date"],
-	input[type="month"],
-	input[type="time"],
-	input[type="week"]{
-		
-	}
-	
-	input[type="number"]{
-		
-	}
-	
-	input[type="email"],
-	input[type="url"],
-	input[type="search"],
-	input[type="tel"]{
-		
-	}
-	
-	input[type="color"]{
-		
+		// &.disabled {}
 	}
 
-	//input type slider (experimental)
-	input[type="range"]{
-		padding: 0;
-	}
+	// Detailed styles
 	
-	//input type password
-	input[type="password"]{
-		
-	}
+	// input[type="datetime"],
+	// input[type="datetime-local"],
+	// input[type="date"],
+	// input[type="month"],
+	// input[type="time"],
+	// input[type="week"] {
+	// }
+	
+	// input[type="number"] {
+	// }
+	
+	// input[type="email"],
+	// input[type="url"],
+	// input[type="search"],
+	// input[type="tel"] {
+	// }
+	
+	// input[type="color"] {
+	// }
+
+	// input[type="range"] {
+	// 	padding: 0;
+	// }
+	
+	// input type password
+	// input[type="password"] {
+	// }
 	
 	input[type="submit"], 
 	&[type="button"],
-	button[type="submit"]{
-		// .appearance(); // cf mixins/_appearance.less
-		border: none; width: auto; overflow: visible;
+	button[type="submit"] {
+		border: none; 
+		width: auto; 
+		overflow: visible;
 		font-style: normal;
 		line-height: normal;
 		height:auto;
@@ -115,56 +108,53 @@ form{
 		margin-bottom: @btn-margin-bottom;
 		font-family: @btn-font;
 		.init-rounded();
-		.size-a;
+		.size-a();
 		
 		// only works with _button.less
-		&.btn-large{
+		&.btn-large {
 			.btn-large;
 		}
 		// only works with _button.less
-		&.btn-small{
+		&.btn-small {
 			.btn-small;
 		}
 	}
-		
-	//textarea
-	textarea{
+
+	// textarea
+	textarea {
 		padding: @input-padding;
 		height: auto;
 		width: 100%;
 	}	
 	
 	
-	//radio
-	input[type="radio"], input[type="checkbox"]{
-		margin:0 .5em 0.2em 0;
+	// radio
+	input[type="radio"], input[type="checkbox"] {
+		margin: 0 .5em 0.2em 0;
 		display: inline-block;
 	}
+
 	// inline:
 	// <label><input type="radio"> blabla</label>
-
 	// inline the other way:
 	// might need a wrapper and adjust the margins
-	input[type="radio"].inline, input[type="checkbox"].inline{
+	input[type="radio"].inline, input[type="checkbox"].inline {
 		display: inline;
-		&+label{
+		&+label {
 			display: inline;
 		}
 	}
 
 	
-	//select
-	select{
-		//.reset-appearance-select();
-		option{
-			&.disabled{
-			
-			}
-		}
-		&.disabled{
-			
-		}
-		&:focus{
+	// select
+	select {
+		// option {
+		// 	&.disabled {
+		// 	}
+		// }
+		// &.disabled {
+		// }
+		&:focus {
 			box-shadow: @input-box-focus;
 			outline: none;
 			outline: thin dotted \9; /* IE6-9 */
@@ -172,39 +162,28 @@ form{
 		}
 	}
 	
-	select,
-	input[type="file"]{}
+	// select,
+	// input[type="file"] {}
 
-	
-	
-	//labels
-	label{
+	// labels
+	label {
 		font-family: @label-font;
 		display: block;
 		margin-bottom: @label-margin-bottom; 
 		cursor: pointer;
-		&.disabled{
+		&.disabled {
 			cursor: default;
 		}
 	}
-
-	//helpers text
-	.helper-text{
-		font-family: @label-font;
-		display: block;
-		color: lighten(@body-color, 30%);
-		margin-bottom: @label-margin-bottom;
-	}
-
-	label span, label small{
+	
+	// label with helpen in <span> or <small>
+	label span, label small {
 		.size-small();
 		color: lighten(@body-color, 30%);
 		margin-bottom: @label-margin-bottom;
 	}
 
-
-	
-	//disabled
+	// disabled
 	html input[disabled],
 	html select[disabled],
 	html textarea[disabled],
@@ -217,40 +196,44 @@ form{
 		background-color: @lighter-grey;
 		border-color: @lighter-grey;
 		color: @light-grey;
-	  	&:hover, &:focus{
-		  	border-color: @lighter-grey;
-		  	box-shadow: 0;
-	  	}
+		&:hover, &:focus {
+			border-color: @lighter-grey;
+			box-shadow: 0;
+		}
 	}
-	// Explicitly reset the colors
+
+	// Explicitly reset the colors for disabled radios & chboxes
 	input[type="radio"][disabled],
 	input[type="checkbox"][disabled],
 	input[type="radio"][readonly],
 	input[type="checkbox"][readonly] {
-	  background-color: transparent;
+		background-color: transparent;
 	}
 	
-	.required, input[required]{
-		border-color:@alert-red;
+	// Requiered input
+	.required, input[required] {
+		border-color: @alert-red;
 	}
 	
+	// invalid input on focus
 	input:focus:invalid,
 	textarea:focus:invalid,
 	select:focus:invalid {
-	  color: @alert-red;
-	  border-color: @alert-red;
-	  &:focus {
-	    border-color: darken(@alert-red, 10%);
-	  }
+		color: @alert-red;
+		border-color: @alert-red;
+		&:focus {
+			border-color: darken(@alert-red, 10%);
+		}
 	}
-
+	
+	// invalid input
 	input:invalid,
 	textarea:invalid,
 	select:invalid {
-	  color: @alert-red;
-	  border-color: @alert-red;
-	  &:focus {
-	    border-color: darken(@alert-red, 10%);
-	  }
+		color: @alert-red;
+		border-color: @alert-red;
+		&:focus {
+			border-color: darken(@alert-red, 10%);
+		}
 	}
 

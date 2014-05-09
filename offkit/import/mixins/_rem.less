@@ -13,16 +13,16 @@
 *
 *******************************************************/
 
-.rem(@value) when (ispixel(@value)){
+.rem(@value) when (ispixel(@value)) {
 	font-size: @value;
 	font-size: unit((@value/@basesize), rem);
 }
 
-.rem(@value) when (isunit(@value, "rem")){
+.rem(@value) when (isunit(@value, "rem")) {
 	font-size: unit((@value * @basesize), px);
 	font-size: @value;
 }
 
-.rem(@value) when (isunit(@value, "em")){
-    font-size: @value;
+.rem(@value) when (isunit(@value, "em")) {
+	font-size: @value;
 }

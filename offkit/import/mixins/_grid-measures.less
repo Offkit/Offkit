@@ -7,14 +7,14 @@
 *
 *******************************************************/
 
-.col-size-width(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth){
+.col-size-width(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth) {
 	width: (@columnWidth * @index) + (@gutterWidth * (@index - 1));
 }
 
-.col-size-height(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth){
+.col-size-height(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth) {
 	height: (@columnWidth * @index) + (@gutterWidth * (@index - 1));
 }
 
-.offset-col(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth){
+.offset-col(@index, @columnWidth: @gridColumnWidth, @gutterWidth: @gridGutterWidth) {
     margin-left: (@columnWidth * @index) + (@gutterWidth * (@index));
 }

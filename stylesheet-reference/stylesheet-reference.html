@@ -653,7 +653,8 @@
              * INIT
              ****************************/
 
-            // as less.js does not fire any events on load
+            // as less.js does not fire any events on load at the moment
+            // cf https://github.com/less/less.js/issues/283
             // set timeout 2sec, hide loader and display page
             var st = setTimeout( function(){
                         $( "#sr-loader" ).fadeOut();

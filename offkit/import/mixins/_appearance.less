@@ -6,7 +6,7 @@
 * appearance prefixed
 *
 * Important: 
-* https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance
+* https:// developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance
 *
 * “
 * Do not use this property on Web sites: not only is it non-standard, 
@@ -25,7 +25,7 @@
 *
 *******************************************************/
 
-.appearance(@value: none){
+.appearance(@value: none) {
 	-webkit-appearance: @value;
 	-moz-appearance:    @value;
 	appearance:         @value;
@@ -33,9 +33,9 @@
 
 /******************************************************/
 
-//ugly hack to remove arrow on firefox
-.reset-appearance-select(@value: none){
+// ugly hack to remove arrow on firefox for select
+.reset-appearance-select(@value: none) {
 	.appearance(@value);
 	text-indent: 1px;
-    text-overflow: '';
+	text-overflow: '';
 }

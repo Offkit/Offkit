@@ -9,33 +9,6 @@
 * Requiered:
 * _variables.less (@basesize)
 *
-* SIMPLIFIER LE PROCESS
-on choisi une basesize (la taille par défaut, 16px pour référence correspondant à 100% dans les navigateurs)
-	on choii une unité de base (px / em / rem)
-	on choisi une échelle typo (rem = em jusqu'ici)
-	OU ALORS, 
-	on choisi une taille de base seulement et un type d'échelle (les autre tailles seront calculée automatiquement)
-
-	on choisi les marges
-
-	cf
-http://type-scale.com/
-
-
-PAR AILLEURS
-ajouter des bool pour les indent, pilcrow… etc
-qui serviront à définir si oui ou non on génére la classe
-
-DONC +>
-   SI "px" alors .modular-scale(@unit, @scale) when ispixel(@unit)
-   Si "em" alors .modular-scale(@unit, @scale) when isem(@unit)
-   Si "rem" alors .modular-scale(@unit, @scale) when not(ispixel(@unit)) and not(when isem(@unit))
-      ici on utilise la mixins
-
-FONCTION "createSize"
-   Si à la main (mot clef "none" pour ratio) => passer directement au lacement de modularescale
-   Si on à rentré un ratio OU un mot clef,
-   	calculer les values de .size-a , b , c etc
 *******************************************************/
 
 
@@ -43,18 +16,17 @@ FONCTION "createSize"
 * 01 - EXCLUSIVE FONT VARIABLES 
 * based on the awesome work of Zachary Kain (@zakkain) 
 * & Dennis Gaebel (@gryghostvisuals) for
-* http://typeplate.com
+* http:// typeplate.com
 *******************************************************/
-@basesize-body 		: (@basesize * 100/16); // conversion in em/rem for body if html is set to 100% (16 is default size in browser)
-
+@basesize-body: (@basesize * 100/16); // conversion in em/rem for body if html is set to 100% (16 is default size in browser)
 
 // set font values
 // if title, set margin-top and margin-bottom
-.modular-scale (@scale, @font-unit, @title:"") when (@font-unit = px){
+.modular-scale (@scale, @font-unit, @title:"") when (@font-unit = px) {
 	font-size: unit(@scale, @font-unit);
 }
 
-.modular-scale (@scale, @font-unit, @title:"") when not(@font-unit = px){
+.modular-scale (@scale, @font-unit, @title:"") when not(@font-unit = px) {
 	.rem(unit(@scale, @font-unit));
 }
 
@@ -72,140 +44,70 @@ FONCTION "createSize"
 
 
 // generate the typographic scale if ratio is a variable or un number
-/*
-	Currently, less does not support dynamicly declared variables name,
-	We'll do it by hand until then
-	cf http://stackoverflow.com/questions/11198221/defining-variable-variables-using-less-css
-
-	//  @sizes-list: a, b, c, d, e, f, g, small, smaller;
-	// 	@length-sizes: length(@sizes-list);
-	// 	.generate-size-at(@index) when (@index > 0){
-	// 		@value: extract(@sizes-list, @index);
-	// 		.generate-size-at-index() when (isnumber(~"@{@manual-size-@{value}}")){
-	// 			~"@{@size-@{value}}": ~"@{@manual-size-@{value}}";
-	// 		}
-	// 		.generate-size-at-index() when not(isnumber(~"@{@manual-size-@{value}}")){
-	// 			@old-value: extract(@sizes-list, @index-1);
-	// 			~"@{@size-@{value}}": ~"@{@manual-size-@{old-value}}" * @typescale-ratio;
-	// 		}
-	// 		.generate-size-at-index(@index-1);
-	// 	}
-	// 	.generate-size-at(O){}
-	// 	.generate-size-at(1);
-*/
-/*
-
-OR BETTER => 
-
-@sizes-list: a, b, c, d, e, f, g, small, smaller;
-@length-sizes: length(@sizes-list);
-
-.generate-size-at(@index) when (@index > 0){
-	@value: extract(@sizes-list, @index);
-	
-	//if is number and base value
-	.size-@{value} when (isnumber(~"@{@manual-size-@{value}}")) and (@index = 1){ 
-		.modular-scale(~"@{@manual-size-@{value}}", @font-unit, true); 
-	}
-	
-	//if is not number and base value
-	.size-@{value} when not(isnumber(~"@{@manual-size-@{value}}")) and (@index = 1){ 
-		.modular-scale(@fontsize, @font-unit, true); 
-	}
-
-	//if is number and not base value
-	.size-@{value} when (isnumber(~"@{@manual-size-@{value}}")) and not(@index = 1){ 
-		.modular-scale(~"@{@manual-size-@{value}}", @font-unit, true); 
-	}
-	
-	//if is not number and not base value
-	.size-@{value} when not(isnumber(~"@{@manual-size-@{value}}")) and not(@index = 1){ 
-		@minor-value: extract(@sizes-list, @index - 1);
-		.modular-scale((~"@{@manual-size-@{minor-value}}" * @typescale-ratio), @font-unit, true); 
-	}
-
-	//if SMALL is not number and not base value
-	.size-@{value} when not(isnumber(~"@{@manual-size-@{value}}")) and (@value = small) and not(@index = 1){ 
-		@minor-value: extract(@sizes-list, 1); //size-a
-		.modular-scale((~"@{@manual-size-@{minor-value}}" / @typescale-ratio), @font-unit, true); 
-	}
-
-	//if SMALLER is not number and not base value
-	.size-@{value} when not(isnumber(~"@{@manual-size-@{value}}")) and (@value = small) and not(@index = 1){ 
-		@minor-value: extract(@sizes-list, @index - 1); //size-small
-		.modular-scale((~"@{@manual-size-@{minor-value}}" / @typescale-ratio), @font-unit, true); 
-	}
-
-	//recursive
-	.generate-size-at(@index - 1);
-}
-
-.generate-size-at(0){}
-.generate-size-at(1);
-
-*/
+// Currently, less does not support dynamicly declared variables name,
+// We'll do it by hand until then
 
 // generate @size-a
-.generate-size-a() when not(isnumber(@manual-size-a)){
+.generate-size-a() when not(isnumber(@manual-size-a)) {
 	@size-a: @fontsize;
 }
-.generate-size-a() when (isnumber(@manual-size-a)){
+.generate-size-a() when (isnumber(@manual-size-a)) {
 	@size-a: @manual-size-a;
 }
 // generate @size-b
-.generate-size-b() when not(isnumber(@manual-size-b)){
+.generate-size-b() when not(isnumber(@manual-size-b)) {
 	@size-b: @size-a * @typescale-ratio;
 }
-.generate-size-b() when (isnumber(@manual-size-b)){
+.generate-size-b() when (isnumber(@manual-size-b)) {
 	@size-b: @manual-size-b;
 }
 // generate @size-c
-.generate-size-c() when not(isnumber(@manual-size-c)){
+.generate-size-c() when not(isnumber(@manual-size-c)) {
 	@size-c: @size-a * @typescale-ratio;
 }
-.generate-size-c() when (isnumber(@manual-size-c)){
+.generate-size-c() when (isnumber(@manual-size-c)) {
 	@size-c: @manual-size-c;
 }
 // generate @size-d
-.generate-size-d() when not(isnumber(@manual-size-d)){
+.generate-size-d() when not(isnumber(@manual-size-d)) {
 	@size-d: @size-c * @typescale-ratio;
 }
-.generate-size-d() when (isnumber(@manual-size-d)){
+.generate-size-d() when (isnumber(@manual-size-d)) {
 	@size-d: @manual-size-d;
 }
 // generate @size-e
-.generate-size-e() when not(isnumber(@manual-size-e)){
+.generate-size-e() when not(isnumber(@manual-size-e)) {
 	@size-e: @size-d * @typescale-ratio;
 }
-.generate-size-e() when (isnumber(@manual-size-e)){
+.generate-size-e() when (isnumber(@manual-size-e)) {
 	@size-e: @manual-size-e;
 }
 // generate @size-f
-.generate-size-f() when not(isnumber(@manual-size-f)){
+.generate-size-f() when not(isnumber(@manual-size-f)) {
 	@size-f: @size-e * @typescale-ratio;
 }
-.generate-size-f() when (isnumber(@manual-size-f)){
+.generate-size-f() when (isnumber(@manual-size-f)) {
 	@size-f: @manual-size-f;
 }
 // generate @size-g
-.generate-size-g() when not(isnumber(@manual-size-g)){
+.generate-size-g() when not(isnumber(@manual-size-g)) {
 	@size-g: @size-f * @typescale-ratio;
 }
-.generate-size-g() when (isnumber(@manual-size-g)){
+.generate-size-g() when (isnumber(@manual-size-g)) {
 	@size-g: @manual-size-g;
 }
 // generate @size-small
-.generate-size-small() when not(isnumber(@manual-size-small)){
+.generate-size-small() when not(isnumber(@manual-size-small)) {
 	@size-small: @size-a / @typescale-ratio;
 }
-.generate-size-small() when (isnumber(@manual-size-small)){
+.generate-size-small() when (isnumber(@manual-size-small)) {
 	@size-small: @manual-size-small;
 }
 // generate @size-smaller
-.generate-size-smaller() when not(isnumber(@manual-size-smaller)){
+.generate-size-smaller() when not(isnumber(@manual-size-smaller)) {
 	@size-smaller: @size-small / @typescale-ratio;
 }
-.generate-size-smaller() when (isnumber(@manual-size-smaller)){
+.generate-size-smaller() when (isnumber(@manual-size-smaller)) {
 	@size-smaller: @manual-size-smaller;
 }
 
@@ -221,24 +123,20 @@ OR BETTER =>
 .generate-size-small();
 .generate-size-smaller();
 
+.size-a 		 { .modular-scale(@size-a, @font-unit, true); }
+.size-b 		 { .modular-scale(@size-b, @font-unit, true); }
+.size-c			 { .modular-scale(@size-c, @font-unit, true); }
+.size-d 		 { .modular-scale(@size-d, @font-unit, true); }
+.size-e 		 { .modular-scale(@size-e, @font-unit, true); } 
+.size-f 		 { .modular-scale(@size-f, @font-unit, true); }
+.size-g 		 { .modular-scale(@size-g, @font-unit, true); }
+.size-small 	 { .modular-scale(@size-small, @font-unit); }
+.size-smaller 	 { .modular-scale(@size-smaller, @font-unit); }
 
-
-//create a class for the different size in the class
-//would be in da loop
-.size-a 		{ .modular-scale(@size-a, @font-unit, true); }
-.size-b 		{ .modular-scale(@size-b, @font-unit, true); }
-.size-c			{ .modular-scale(@size-c, @font-unit, true); }
-.size-d 		{ .modular-scale(@size-d, @font-unit, true); }
-.size-e 		{ .modular-scale(@size-e, @font-unit, true); } 
-.size-f 		{ .modular-scale(@size-f, @font-unit, true); }
-.size-g 		{ .modular-scale(@size-g, @font-unit, true); }
-.size-small 	{ .modular-scale(@size-small, @font-unit); }
-.size-smaller 	{ .modular-scale(@size-smaller, @font-unit); }
-
-//set font function
-.base-type(@weight, @lineheight, @fontsize, @font-family) when (@font-unit = px){
+// set font function
+.base-type(@weight, @lineheight, @fontsize, @font-family) when (@font-unit = px) {
 	font: @weight ~"@{fontsize}px/@{lineheight}" @font-family;
 }
-.base-type(@weight, @lineheight, @fontsize, @font-family) when not(@font-unit = px){
+.base-type(@weight, @lineheight, @fontsize, @font-family) when not(@font-unit = px) {
 	font: @weight ~"@{basesize-body}%/@{lineheight}" @font-family;
 }

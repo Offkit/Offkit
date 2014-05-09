@@ -129,24 +129,24 @@
 * 02 - FONTS & type related
 *      used in _type.less
 *******************************************************/
-//put your @font-face here
+// put your @font-face here
 
 // set fonts families
-@sans-serif 		: 'helvetica Neue', helvetica,arial,sans-serif; //used for headings
-@serif 				: 'times','times new roman','georgia'; //used for paragraphs
+@sans-serif 		: 'helvetica Neue', helvetica,arial,sans-serif; // used for headings
+@serif 				: 'times','times new roman','georgia'; // used for paragraphs
 @mono 				: monaco;
 
 // font unit
-@font-unit			: rem; //acceptedd values [px, em, rem]
+@font-unit			: rem; // acceptedd values [px, em, rem]
 
 // basic size
 @basesize 			:20; // set in pixels
 
 // convert basesize if rem or em
-.set-fontsize() when not(@font-unit = px){
+.set-fontsize() when not(@font-unit = px) {
 	@fontsize 		: 1; // give the default em/rem value for @basesize
 }
-.set-fontsize() when (@font-unit = px){
+.set-fontsize() when (@font-unit = px) {
 	@fontsize 		: @basesize;
 }
 .set-fontsize();
@@ -157,12 +157,12 @@
 // if you want to enter values by hand
 // accepted values 
 // [ "none", false,
-//	 a number, 
+// 	 a number, 
 // 	 @golden-ratio, 
-//	 @augmented-fourth, 
+// 	 @augmented-fourth, 
 // 	 @major-second, @major-third, @major-sixth, @major-seventh, @major-tenth,
 // 	 @minor-second, @minor-third, @minor-sixth, @minor-seventh,
-//	 @octave,
+// 	 @octave,
 // 	 @perfect-fourth, @perfect-fifth
 // ]
 // see documentation for further details
@@ -173,27 +173,27 @@
 // values muste be enter according to the @font-unit (in px, em or rem)
 // any number value at a given size will overide the typographic scale rendered with your ratio at this size
 
-@manual-size-g 				: false; // default is: 5.653;			//	not directly in use, call it with the mixin .size-g();
-@manual-size-f 				: false; // default is: 3.998;			//	h1 -- call it with the mixin .size-f();
-@manual-size-e 				: false; // default is: 2.827;			//	h2 -- call it with the mixin .size-e();
-@manual-size-d 				: false; // default is: 1.999;			//	h3 -- call it with the mixin .size-d();
-@manual-size-c 				: false; // default is: 1.414;			//	h4 (equivalent h4 / h5) -- call it with the mixin .size-c();
-@manual-size-b 				: false; // default is: 1.414;			//	h5 -- call it with the mixin .size-b();
+@manual-size-g 				: false; // default is: 5.653;			// 	not directly in use, call it with the mixin .size-g();
+@manual-size-f 				: false; // default is: 3.998;			// 	h1 -- call it with the mixin .size-f();
+@manual-size-e 				: false; // default is: 2.827;			// 	h2 -- call it with the mixin .size-e();
+@manual-size-d 				: false; // default is: 1.999;			// 	h3 -- call it with the mixin .size-d();
+@manual-size-c 				: false; // default is: 1.414;			// 	h4 (equivalent h4 / h5) -- call it with the mixin .size-c();
+@manual-size-b 				: false; // default is: 1.414;			// 	h5 -- call it with the mixin .size-b();
 @manual-size-a 				: false; // default is: @fontsize;		//  p and h6 -- call it with the mixin .size-a();
 @manual-size-small 			: .8; 	 // default is: 0.707; 			//  small size -- call it with the mixin .size-small();
 @manual-size-smaller 		: .65;	 // default is: 0.500; 			//  really small -- call it with the mixin .size-smaller();
 
 // default text style
-@lineheight 		: 1.5; //set lineheight (by default, define basic margin top/bottom for each element)
-@weight 			: 400; //don't use "normal" :)
-@letter-spacing 	: normal; //set base letter spacing
+@lineheight 		: 1.5; // set lineheight (by default, define basic margin top/bottom for each element)
+@weight 			: 400; // don't use "normal" :)
+@letter-spacing 	: normal; // set base letter spacing
 
 // default paragraph style
 // acceptedd values ["leading", "indent", "rule", "dropcap", "pilcrow"]
 // see documentation for further details
 @paragraph-style 	: "leading"; 
 
-//generate classes for the following paragraph style:
+// generate classes for the following paragraph style:
 @paragraph-leading 	: true;
 @paragraph-indent 	: true;
 @paragraph-rule 	: true;
@@ -212,7 +212,7 @@
 
 @offset-grid 		: true; // do we want .offset-@index or not ?
 @use-wrap 			: true; // use wrap style grid (.wrap > .col-1.first + .col-11) 
-@use-row 			: true; //use row style grid (.container (can be wrap) > .row > .col-1 + .col-11)
+@use-row 			: true; // use row style grid (.container (can be wrap) > .row > .col-1 + .col-11)
 
 /******************************************************
 * 02 - MARGINS AND PADDINGS
@@ -225,7 +225,7 @@
 
 @margin-top: 0;
 @margin-bottom: @lineheight * 1em;
-@indent-value: @lineheight * 1em; //used for paragraphs if indentation is activated
+@indent-value: @lineheight * 1em; // used for paragraphs if indentation is activated
 
 // margin for paragraphs
 @p-margin-top: @margin-top;
@@ -296,12 +296,12 @@
 @shadow-blur 		: 2px;
 @shadow-spread 		: 0px;
 
-//default values for transitions
-@transition-property: all;
-@transition-duration: .2s;
-@transition-ease 	: ease-in-out;
+// default values for transitions
+@transition-property : all;
+@transition-duration : .2s;
+@transition-ease 	 : ease-in-out;
 
-//z-index
+// z-index
 @zindexModal   : 9000;
 @zindexOverlay : 8000;
 @zindexHeader  : 7000;

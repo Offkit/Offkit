@@ -23,38 +23,38 @@
 	ul { 
 		list-style: none;
 		margin: 0;
-		padding: 0;	
+		padding: 0;
 	}
 	li a { 
 		padding: @nav-padding;
-		display: block;	
+		display: block;
 		text-decoration: none;
-		&.nav-active{ 
+		&.nav-active { 
 					background-color: lighten(@nav-background, 9%);
 					color: @dark-grey;
-					cursor: default;		
+					cursor: default;
 					text-decoration: none;
 				}
 	}
 	
 	// add custom "You are here" pseudo element
-	&.nav-vertical{
-		li{
-			a{ 
+	&.nav-vertical {
+		li {
+			a { 
 				&.nav-active:after { 
 					content: "You are here";
 					float: right;
 					color: lighten(@nav-background, 4%);
 				}
-				&.nav-active{
+				&.nav-active {
 					color: 	 @dark-grey;
 					background-color: lighten(@nav-background, 9%);
 					cursor: default;
 				}
 			}
 			// submenu
-			ul{
-				a{
+			ul {
+				a {
 					padding-left: @nav-margin;
 				}
 			}
@@ -66,37 +66,36 @@
 
 // add full css responsive nav
 .nav-responsive {
-	#close-menu{
+	#close-menu {
 		display: none;
 	}
-	ul{
+	ul {
 		height: 0;
 		.transition();
-		overflow: hidden;		
+		overflow: hidden;
 		list-style: none;
 		margin: 0;
 		padding: 0;	
-		li{
+		li {
 			width: 100%;
 			display:block;
 			text-decoration: none;
-			a{
-				
-			}
+			// a {
+			// }
 		}
 	}
 		
-	&:target{
-		#close-menu{
+	&:target {
+		#close-menu {
 			display: block;
 		}
-		#open-menu{
+		#open-menu {
 			display: none;
 		}
-		ul{
+		ul {
 			height:auto;
-			li{
-			}
+			// li {
+			// }
 		}
 	}
 }

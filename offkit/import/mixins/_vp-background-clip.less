@@ -11,12 +11,12 @@
 *
 *******************************************************/
 
-.background-clip(@clip: padding-box) when not(@auto-prefixer = true){
+.background-clip(@clip: padding-box) when not(@auto-prefixer = true) {
 	-moz-background-clip: @clip;
-    -webkit-background-clip: @clip;
-    background-clip: @clip;
+	-webkit-background-clip: @clip;
+	background-clip: @clip;
 }
 
-.background-clip(@clip: padding-box) when (@auto-prefixer = true){
-    background-clip: @clip;
+.background-clip(@clip: padding-box) when (@auto-prefixer = true) {
+	background-clip: @clip;
 }

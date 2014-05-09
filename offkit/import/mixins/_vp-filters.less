@@ -11,11 +11,11 @@
 *
 *******************************************************/
 
-.filter(@value) when not(@auto-prefixer = true){
+.filter(@value) when not(@auto-prefixer = true) {
 	-webkit-filter: @value;
 	filter: @value;
 }
 
-.filter(@value) when (@auto-prefixer = true){
+.filter(@value) when (@auto-prefixer = true) {
 	filter: @value;
 }

@@ -5,16 +5,18 @@
 *
 *******************************************************/
 
-//init & reset
-button{
-	//.appearance();
-	border: none; margin: 0; padding: 0; line-height: @lineheight; width: auto; overflow: visible;
-	&:focus{
-		
-	}
+// init & reset
+button {
+	border: none; 
+	margin: 0; 
+	padding: 0; 
+	line-height: @lineheight; 
+	width: auto; 
+	overflow: visible;
+	// &:focus {}
 }
 
-.btn, button{
+.btn, button {
 	cursor: pointer;
 	text-decoration: none;
 	display: inline-block;
@@ -27,106 +29,103 @@ button{
 	.init-rounded();
 	background-color: @btn-default;
 	color: @btn-default-txt;
-	padding: @btn-padding;;		
-	
-	.size-a;
-	
-	&:hover,&:focus{
+	padding: @btn-padding;		
+	.size-a();
+	&:hover,&:focus {
 		color: @btn-default-txt;
-		//border-color: @btn-default;
 		background-color: lighten(@btn-default, 2%);
 	}
-	&:active{
+	&:active {
 		background-color: darken(@btn-default, 2%);		
 	}
 }
 
 
-//button size
-.btn-large{	
+// button size
+.btn-large {	
 	padding: @btn-padding-large;
-	.size-b;
+	.size-b();
 }
 
-.btn-medium{
+.btn-medium {
 	padding: @btn-padding;
-	.size-a;
+	.size-a();
 }
 
-.btn-small{
+.btn-small {
 	padding: @btn-padding-small;
-	.size-smaller;
+	.size-smaller();
 }
 
 
-//button color
-.btn-primary{
+// button color
+.btn-primary {
 	background-color: @btn-primary;
 	color: @btn-primary-txt;
-	&:hover, &:focus{
+	&:hover, &:focus {
 		color: @btn-primary-txt;
 		background-color: lighten(@btn-primary, 10%); 
 	}
-	&:active{
+	&:active {
 		background-color: darken(@btn-primary, 2%);		
 	}	
 }
 .btn-secondary {
 	background-color: @btn-secondary;
 	color: @btn-secondary-txt;
-	&:hover, &:focus{
+	&:hover, &:focus {
 		border-color: @btn-secondary;
 		background-color: lighten(@btn-secondary, 10%);
 	}
-	&:active{
+	&:active {
 		background-color: darken(@btn-secondary, 2%);		
 	}	
 }
 
-.btn-red{
+.btn-red {
 	background-color: @btn-red;
 	color: @btn-red-txt;	
-	&:hover, &:focus{ 
+	&:hover, &:focus { 
 		color: @btn-red-txt;
 		background-color: lighten(@btn-red, 10%);
 	}
-	&:active{
+	&:active {
 		background-color: darken(@btn-red, 2%);		
 	}	
 }
 
-.btn-green{
+.btn-green {
 	background-color: @btn-green;
 	color: @btn-green-txt;	
-	&:hover{
+	&:hover {
 		color: @btn-green-txt;
 		background-color: lighten(@btn-green, 10%);
 	}
-	&:active{
+	&:active {
 		background-color: darken(@btn-green, 2%);		
 	}	
 }
 
-.btn-yellow{
+.btn-yellow {
 	background-color: @btn-yellow;
 	color: @btn-yellow-txt;	
-	&:hover{
+	&:hover {
 		color: @btn-yellow-txt;
 		background-color: lighten(@btn-yellow, 10%);
 	}
-	&:active{
+	&:active {
 		background-color: darken(@btn-yellow, 2%);		
 	}	
 }
 
-.btn-blue{
+.btn-blue {
 	background-color: @btn-blue;
 	color: @btn-blue-txt;	
-	&:hover{
+	&:hover {
 		color: @btn-blue-txt;
 		background-color: lighten(@btn-blue, 2%);
 	}
-	&:active{
+	&:active {
 		background-color: darken(@btn-blue, 2%);		
 	}	
 }

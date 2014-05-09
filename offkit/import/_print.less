@@ -3,29 +3,30 @@
 * PRINT.LESS
 *
 * Set differents styles for print
-* Inspired by http://drublic.de/blog/printing-the-web/
+* Inspired by http:// drublic.de/blog/printing-the-web/
 *
 *******************************************************/
 
-//get page structure
+// get page structure
 @page {
     margin: 2cm 1.5cm;
 }
 
-//adjust font size
-html{
+// adjust font size
+html {
 	font-size: 75%; // 16px * 75% = 12px
 }
-body{
+
+body {
 	font-color: #000;
 }
 
-//remove unnecessary element such as footer, navigation... etc.
-.nav, nav, .footer-main{
+// remove unnecessary element such as footer, navigation... etc.
+.nav, nav, .footer-main {
 	display: none;
 }
 
-//make links more print friendly by displaying the url
+// make links more print friendly by displaying the url
 a[href]:after {
     content: " (" attr(href) ")";
 }
@@ -40,7 +41,7 @@ abbr[title]:after {
     content: " (" attr(title) ")";
 }
 
-//titles
+// titles
 h1, h2, h3, h4, h5, h6, header {
     page-break-after: avoid;
 }

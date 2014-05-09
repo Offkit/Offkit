@@ -3,23 +3,23 @@
 * MIXINS/_VP-BACKGROUND-GRADIENT.LESS
 *
 * Description:
-*
+* IN PROCESS
+* 
 * Requiered:
 * _variables.less (@auto-perfixer)
 *
 *******************************************************/
 
-.background-image(@gradient, ...) when not(@auto-prefixer = true){
+.background-image(@gradient, ...) when not(@auto-prefixer = true) {
 	// TO DO
-	// 1 dégrouper les arguments
-	// 2 lister les keyword et leur équivalent (genre "to bottom" => top)
-	// 3 faire la conversion (si on trouve un truc de la liste keyword alors on met son equivalent)
-	@value: ~`(function(){
+	// 1 degroup arguments
+	// 2 exact keyword => equivalent list ("to bottom" => top) for conversion
+	@value: ~`(function() {
 		 	var value = "@{arguments}".replace(/[\[\]]|\,\sX/g, '');
 			return value;
 		})()`;
 
-	@moz-value: ~`(function(){
+	@moz-value: ~`(function() {
 			var values = { "to top": "bottom",
 						 "to bottom": "top",
 						 "left": "left",
@@ -37,7 +37,7 @@
 	   					 "ellipse farthest-side":"center center, ellipse cover" };
 
 			arguments = "@{arguments}".replace(/[\[\]]|\,\sX/g, '');
-			for( var key in values){
+			for( var key in values) {
 				var current = values[key];
 				arguments = arguments.replace(key, current);
 			}
@@ -51,8 +51,8 @@
     background-image: @value;
 }
 
-.background-image(@gradient, ...) when (@auto-prefixer = true){
-	@value: ~`(function(){
+.background-image(@gradient, ...) when (@auto-prefixer = true) {
+	@value: ~`(function() {
 		 	var value = "@{arguments}".replace(/[\[\]]|\,\sX/g, '');
 			return value;
 		})()`;

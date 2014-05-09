@@ -14,10 +14,10 @@
 *
 *******************************************************/
 
-//_type.less related
+// _type.less related
 @import "mixins/_typographic-scale.less";
 
-//generics
+// generics
 @import "mixins/_appearance.less";
 @import "mixins/_center.less";
 @import "mixins/_clearfix.less";
@@ -28,10 +28,10 @@
 @import "mixins/_rem.less";
 @import "mixins/_size.less";
 
-//grid related
+// grid related
 @import "mixins/_grid-measures.less";
 
-//vendors
+// vendors
 @import "mixins/_vp-animation.less";
 @import "mixins/_vp-font-feature.less";
 @import "mixins/_vp-backface-visibility.less";
@@ -51,6 +51,6 @@
 /******************************************************
 * 07 - INITIALISATIONS MIXINS
 *******************************************************/
-.init-rounded(@base-value: @rounded-value) when ( @rounded-bool = true) {
-	  .border-radius(@base-value);
+.init-rounded(@base-value: @rounded-value) when (@rounded-bool = true) {
+	.border-radius(@base-value);
 }

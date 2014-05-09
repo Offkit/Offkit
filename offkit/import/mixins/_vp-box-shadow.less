@@ -15,24 +15,24 @@
 *******************************************************/
 
 /* .box-shadow(0,0,4px,0,#444); */
-.box-shadow(@x: @shadow-h, @y: @shadow-v, @radius: @shadow-blur, @spread: @shadow-spread, @color: @shadow-color)  when (isnumber(@x)) and not(@auto-prefixer = true){
+.box-shadow(@x: @shadow-h, @y: @shadow-v, @radius: @shadow-blur, @spread: @shadow-spread, @color: @shadow-color)  when (isnumber(@x)) and not(@auto-prefixer = true) {
 	-webkit-box-shadow: @x @y @radius @spread @color;
 	-moz-box-shadow: 	@x @y @radius @spread @color;
 	box-shadow: 		@x @y @radius @spread @color;
 }
 
-.box-shadow(@x: @shadow-h, @y: @shadow-v, @radius: @shadow-blur, @spread: @shadow-spread, @color: @shadow-color)  when (isnumber(@x)) and (@auto-prefixer = true){
+.box-shadow(@x: @shadow-h, @y: @shadow-v, @radius: @shadow-blur, @spread: @shadow-spread, @color: @shadow-color)  when (isnumber(@x)) and (@auto-prefixer = true) {
 	box-shadow: 		@x @y @radius @spread @color;
 }
 
 /* .box-shadow(none); */
-.box-shadow(@x) when (iskeyword(@x)) and (@x = none) and not(@auto-prefixer = true){
+.box-shadow(@x) when (iskeyword(@x)) and (@x = none) and not(@auto-prefixer = true) {
 	-webkit-box-shadow: @x;
 	-moz-box-shadow: 	@x;
 	box-shadow: 		@x; 
 }
 
-.box-shadow(@x) when (iskeyword(@x)) and (@x = none) and (@auto-prefixer = true){
+.box-shadow(@x) when (iskeyword(@x)) and (@x = none) and (@auto-prefixer = true) {
 	box-shadow: 		@x; 
 }
 
@@ -40,16 +40,16 @@
 
 /* multiplebox shadows or inset box shadows */
 /* .box-shadow(0 0 4px 0 #444, inset 0 0 5px 5px #222); */
-.box-shadow(@shadowX, @shadowY, ...) when not(@auto-prefixer = true){
-    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+.box-shadow(@shadowX, @shadowY, ...) when not(@auto-prefixer = true) {
+	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
 
-    -webkit-box-shadow: @value;
-    -moz-box-shadow:    @value;
-    box-shadow:         @value; 
+	-webkit-box-shadow: @value;
+	-moz-box-shadow:    @value;
+	box-shadow:         @value; 
 }
 
-.box-shadow(@shadowX, @shadowY, ...) when (@auto-prefixer = true){
-    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+.box-shadow(@shadowX, @shadowY, ...) when (@auto-prefixer = true) {
+	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
 
-    box-shadow:         @value; 
+	box-shadow:         @value; 
 }

@@ -18,14 +18,14 @@
 * </div>
 *
 * Use it as:
-* .embed-wrapper{
+* .embed-wrapper {
 * 	 .embed-responsive(@ratio);
 * }
 * 
 *******************************************************/
 
-//responsives embeds (iframe, embed or objects)
-.embed-responsive(@media-ratio: @mr-169){
+// responsives embeds (iframe, embed or objects)
+.embed-responsive(@media-ratio: @mr-169) {
 	position: relative;
 	padding-bottom: @media-ratio * 100%;
 	padding-top: 25px;
@@ -33,7 +33,7 @@
 
 	object,
 	embed,
-	iframe{
+	iframe {
 		position: absolute;
 		top: 0;
 		left: 0;

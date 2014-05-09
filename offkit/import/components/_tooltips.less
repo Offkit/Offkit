@@ -30,11 +30,11 @@
 /******************************************************
 * TOOLTIP CSS
 *******************************************************/
-.tooltip{
+.tooltip {
 	position: relative;
 	display: inline-block;
 
-	&:before, &:after{
+	&:before, &:after {
 		position: absolute;
 
 		bottom: 100%;
@@ -47,7 +47,7 @@
 	
 	}
 
-	&:before{
+	&:before {
 		content: "";
 
 		position: absolute;
@@ -59,14 +59,14 @@
 		margin-bottom: -12px;
 	}
 
-	&:after{
+	&:after {
 		content: attr(data-tooltip);
 		background: @cp-tooltip-bg-color;
 		font-family: @cp-tooltip-font;
 		color: @bg-light;
 		.size-small();
 		font-weight: 400;
-		margin: 0; //reset margins
+		margin: 0; // reset margins
 		.init-rounded();
 
 		margin-left: -18px;
@@ -75,24 +75,24 @@
 	}
 
 	&:hover,
-	&:focus{
+	&:focus {
 		&:before,
-		&:after{
+		&:after {
 			visibility: visible;
 			.opacity(1);
 		}
 	}
 
-	//position (default: top)
-	&.tooltip-bottom{
+	// position (default: top)
+	&.tooltip-bottom {
 		&:before,
-		&:after{
+		&:after {
 			top: 100%;
 			bottom: auto;
 		}
-		&:after{
+		&:after {
 		}
-		&:before{
+		&:before {
 			margin-bottom: 0;
 			margin-top: -12px;
 			border-top-color: transparent;
@@ -100,56 +100,56 @@
 		}
 	}
 
-	//colors
-	&.tooltip-warning{
-		&:after{
+	// colors
+	&.tooltip-warning {
+		&:after {
 			background-color: @cp-tooltip-yellow;
 			color: @cp-tooltip-bg-color;
 		}
-		&:before{
+		&:before {
 			border-top-color: @cp-tooltip-yellow;
 		}
-		&.tooltip-bottom:before{
+		&.tooltip-bottom:before {
 			border-top-color: transparent;
 			border-bottom-color: @cp-tooltip-yellow;
 		}	
 	}
-	&.tooltip-error{
-		&:after{
+	&.tooltip-error {
+		&:after {
 			background-color: @cp-tooltip-red;
 		}
-		&:before{
+		&:before {
 			border-top-color: @cp-tooltip-red;
 		}		
-		&.tooltip-bottom:before{
+		&.tooltip-bottom:before {
 			border-top-color: transparent;
 			border-bottom-color: @cp-tooltip-red;
 		}	
 	}
-	&.tooltip-info{
-		&:after{
+	&.tooltip-info {
+		&:after {
 			background-color: @cp-tooltip-blue;
 			color: @cp-tooltip-bg-color;
 		}
-		&:before{
+		&:before {
 			border-top-color: @cp-tooltip-blue;
 		}		
-		&.tooltip-bottom:before{
+		&.tooltip-bottom:before {
 			border-top-color: transparent;
 			border-bottom-color: @cp-tooltip-blue;
 		}	
 	}
-	&.tooltip-success{
-		&:after{
+	&.tooltip-success {
+		&:after {
 			background-color: @cp-tooltip-green;
 			color: @cp-tooltip-bg-color;
 		}
-		&:before{
+		&:before {
 			border-top-color: @cp-tooltip-green;
 		}	
-		&.tooltip-bottom:before{
+		&.tooltip-bottom:before {
 			border-top-color: transparent;
 			border-bottom-color: @cp-tooltip-green;
-		}	
+		}
 	}
 }

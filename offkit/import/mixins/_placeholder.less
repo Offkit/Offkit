@@ -11,17 +11,17 @@
 *
 *******************************************************/
 
-.placeholder(@color, @opacity:1){
+.placeholder(@color, @opacity:1) {
 	&::-webkit-input-placeholder {
-	   color: @color;
-	   .opacity(@opacity);
+		color: @color;
+		.opacity(@opacity);
 	}
-	&::-moz-placeholder {  /* Firefox 19+ */
-	   color: @color;
-	   .opacity(@opacity);  
+	&::-moz-placeholder { /* Firefox 19+ */
+		color: @color;
+		.opacity(@opacity);
 	}
-	&:-ms-input-placeholder {  
-	   color: @color;  
-	   .opacity(@opacity);
+	&:-ms-input-placeholder {
+		color: @color;  
+		.opacity(@opacity);
 	}
 }

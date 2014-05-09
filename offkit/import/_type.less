@@ -10,22 +10,22 @@
 *******************************************************/
 
 
-//paragraph settings
-.leading() when (@paragraph-leading = true){
+// paragraph settings
+.leading() when (@paragraph-leading = true) {
 	margin: @p-margin-top 0 @p-margin-bottom;
 }
-.indent() when (@paragraph-indent = true){
+.indent() when (@paragraph-indent = true) {
 	margin: 0;
-	&+p{
+	&+p {
 		text-indent: @indent-value;
-		&:before{
+		&:before {
 			content: none;
 		}
 	}
 }
-//dropcaps adapted from Ian Devlin
-//http://www.iandevlin.com/blog/2012/04/css/cross-browser-drop-caps-with-css
-.dropcap() when (@paragraph-dropcap = true){
+// dropcaps adapted from Ian Devlin
+// http:// www.iandevlin.com/blog/2012/04/css/cross-browser-drop-caps-with-css
+.dropcap() when (@paragraph-dropcap = true) {
 	margin: 0 0 @p-margin-bottom;
 	&:first-letter { 
 		float:left; 
@@ -35,7 +35,7 @@
 		*line-height:1em; /* IE7 Only */ 
 		padding:0 .1em 0 0; 
 	}
-	&:before{
+	&:before {
 		content: none;
 	}
 	&~p:first-letter {
@@ -46,22 +46,22 @@
 		padding:0; 
 	}
 }
-.pilcrow() when (@paragraph-pilcrow = true){
+.pilcrow() when (@paragraph-pilcrow = true) {
 	margin: 0;	
 	position: relative;
-	&:before{
+	&:before {
 		content: "\00B6";
-		display: inline-block; //make hack for ie7
-		left:-0.9em;
+		display: inline-block; // make hack for ie7
+		left: -0.9em;
 		position: absolute;
 	}
 }
-.rule() when (@paragraph-rule = true){
+.rule() when (@paragraph-rule = true) {
 	border-bottom: 1px solid @body-color;
 	padding-bottom: @p-margin-bottom; margin-bottom: @p-margin-bottom - 0.1em;		
 	text-indent: 0;
-	&:last-of-type{
-		//Only works in ie9 !!!!
+	&:last-of-type {
+		// Only works in ie9 !!!!
 		border:none;
 	}
 }
@@ -69,12 +69,12 @@
 /******************************************************
 * 01 - SET BASE FONT
 *******************************************************/
-html{
+html {
 	.base-type(@weight, @lineheight, @fontsize, @serif);
 }
 
-body{
-	//set break words, hyphen and color
+body {
+	// set break words, hyphen and color
 	color: @body-color;
 }
 
@@ -83,32 +83,32 @@ body{
 *
 * Put your styles for headings here
 *******************************************************/
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+h1, h2, h3, h4, h5, h6 {
 	color: @heading-color;
 	font-family: @sans-serif;
 	text-rendering: optimizeLegibility;	// fix kerning
 	line-height: 1; // better spaces between 2 lines headings
 }
 
-h1, .h1{
+h1 {
 	.size-f;
 }
-h2, .h2{
+h2 {
 	.size-e;
 }
-h3, .h3{
+h3 {
 	.size-d;
 }
-h4, .h4{
+h4 {
 	.size-c;
 }
-h5, .h5{
+h5 {
 	.size-b;
 }
-h6, .h6{
+h6 {
 	.size-a;
 }
-p{
+p {
 	.size-a;
 }
 
@@ -117,29 +117,29 @@ p{
 *******************************************************/
 
 
-.initParagraphStyle() when (@paragraph-style = "leading"){
-	p{ 
+.initParagraphStyle() when (@paragraph-style = "leading") {
+	p { 
 		.leading();
 	}
 }
-.initParagraphStyle() when (@paragraph-style = "indent"){
-	p{
+.initParagraphStyle() when (@paragraph-style = "indent") {
+	p {
 		.indent();
 	}
 }
-.initParagraphStyle() when (@paragraph-style = "dropcap"){
-	p{
+.initParagraphStyle() when (@paragraph-style = "dropcap") {
+	p {
 		.dropcap();
 		.indent();
 	}
 }
-.initParagraphStyle() when (@paragraph-style = "pilcrow"){
-	p{
+.initParagraphStyle() when (@paragraph-style = "pilcrow") {
+	p {
 		.pilcrow();
 	}
 }
-.initParagraphStyle() when (@paragraph-style = "rule"){
-	p{
+.initParagraphStyle() when (@paragraph-style = "rule") {
+	p {
 		.rule();
 	}
 }
@@ -157,43 +157,43 @@ p{
 * E Rule
 *******************************************************/
 
-.leading when (@paragraph-leading = true){
-	p{
+.leading when (@paragraph-leading = true) {
+	p {
 		.leading();
 	}
-	p&{
+	p& {
 		.leading();
 	}
 }
-.dropcap when (@paragraph-dropcap = true){
+.dropcap when (@paragraph-dropcap = true) {
 	p {
 		.dropcap();
 	}
-	p&{
+	p& {
 		.dropcap();
 	}
 }
-.indent when (@paragraph-indent = true){
-	p{
+.indent when (@paragraph-indent = true) {
+	p {
 		.indent();
 	}
-	p&{
+	p& {
 		.indent();
 	}
 }
-.pilcrow when (@paragraph-pilcrow = true){
-	p{
+.pilcrow when (@paragraph-pilcrow = true) {
+	p {
 		.pilcrow();
 	}
-	p&{
+	p& {
 		.pilcrow();
 	}
 }
-.rule when (@paragraph-rule = true){
-	p{
+.rule when (@paragraph-rule = true) {
+	p {
 		.rule();
 	}
-	p&{
+	p& {
 		.rule();
 	}
 }
@@ -202,35 +202,35 @@ p{
 * 01 - other sizes
 *******************************************************/
 
-.small-text{
-	p{
+.small-text {
+	p {
 		.size-small;
-		&:first-child{
+		&:first-child {
 			margin-top: .3em;
 		}
 	}
 }
 
-.smaller-text{
-	p{
+.smaller-text {
+	p {
 		.size-smaller;
-		&:first-child{
+		&:first-child {
 			margin-top: .3em;
 		}
 	}
 }
 
-.small{
+.small {
 	.size-smaller;
 }
 
 /******************************************************
 * 01 - LINKS
 *******************************************************/
-a{
+a {
 	color: @link-color;
-	//.transition;
-	&:hover{
+	// .transition;
+	&:hover {
 		color: @hover-color;
 	}
 }
@@ -238,28 +238,28 @@ a{
 /******************************************************
 * 01 - BLOCKQUOTES
 *******************************************************/
-blockquote{
+blockquote {
 	&:before,
 	&:after {
-		//definir les tailles des quotes
+		// definir les tailles des quotes
 	}
 	&:before {
-		//content avant
+		// content avant
 	}
 	&:after {
-		//content après
+		// content après
 	}
 }
 
 /******************************************************
 * 01 - FIGURES
 *******************************************************/
-figure{
-	figcaption{
+figure {
+	figcaption {
 		.size-small();
 		font-style: italic;
 		margin-bottom: @margin-bottom;
-		strong{
+		strong {
 			font-style:normal;
 		}
 	}
@@ -268,7 +268,7 @@ figure{
 /******************************************************
 * 01 - CODE RELATED
 *******************************************************/
-pre{
+pre {
 	background-color: darken(@bg-light, 4%);
 	border: 1px solid @grey;
 	border: 1px solid rgba(0, 0, 0, 0.15);
@@ -281,14 +281,14 @@ pre{
 	white-space: pre-wrap;
 	word-break: break-all;
 	word-wrap: break-word;
-	code{
+	code {
 		background: none;
 		border: none;
 		padding: 0;
 	}
 }
 
-code{
+code {
 	background-color: darken(@bg-light, 4%);
 	border: 1px solid @grey;
 	border: 1px solid rgba(0, 0, 0, 0.15);	
@@ -301,32 +301,32 @@ code{
 /******************************************************
 * 01 - LISTS
 *******************************************************/
-//unordered list
-ul{
+// unordered list
+ul {
 	margin: @p-margin-bottom 0;
 	padding: 0;
-	li{
-		//sublist
-		ul, ol{
+	li {
+		// sublist
+		ul, ol {
 			margin: 0 0 0 @indent-value;
-			li{
+			li {
 
 			}
 		}
 	}
 
-	&.custom{
+	&.custom {
 		list-style: none;
-		li{
+		li {
 			&:before {
 				content:'☞';
 				color: @primary;
 				margin-right:@p-margin-bottom;
 			}
 
-			ul, ol{
+			ul, ol {
 				list-style: none;
-				li{
+				li {
 					&:before {
 						content:'✍';
 					}
@@ -336,38 +336,37 @@ ul{
 	}
 }
 
-//ordered list
-ol{
+// ordered list
+ol {
 	margin: @p-margin-bottom 0;
 	padding: 0;
-	li{
-
-		//sublist
-		ol,ul{
+	li {
+		// sublist
+		ol,ul {
 			margin: 0 0 0 @indent-value;
-			li{
+			li {
 
 			}
 		}
 	}
 }
-//definition list
-dl{
-	dt{
+// definition list
+dl {
+	dt {
 		font-weight: bold;
 		.size-a;
 		margin-bottom:0;
 	}
-	dd{
+	dd {
 		.size-small;
 		margin-left: @indent-value;
 	}
 
-	&.dictionary-style{
-		dt{
+	&.dictionary-style {
+		dt {
 			counter-reset: definitions;
 		}
-		dd{
+		dd {
 			counter-increment: definitions;
 			&:before {
 				content: counter(definitions, decimal) ". ";
@@ -380,32 +379,25 @@ dl{
 /******************************************************
 * 01 - MISC
 *******************************************************/
-b{}
-strong{}
-em{}
-u{}
-sub{}
-sup{}
-small, .small{}
+// b {}
+// strong {}
+// em {}
+// u {}
+// sub {}
+// sup {}
+// small, .small {}
+
 abbr {
 	font-variant:small-caps;
-	.font-feature-smcp(); //set to opentype smallcaps if available
+	.font-feature-smcp(); // set to opentype smallcaps if available
 	&:hover {
 		cursor: help;
 	}
 }
 
-hr{
-	border: 0;
-	border-top: 1px solid @lighter-grey;
-	border-bottom: 1px solid @white;
-	margin: @p-margin-bottom 0;
-	&.soften{
-		
-	}
-}
+// hr {}
 
-.highlighted{
+.highlighted {
 	background-color: @alert-green;
 	margin-left: -0.1em; margin-right: -0.1em;
 	padding-left: 0.1em; padding-right: 0.1em;

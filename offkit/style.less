@@ -29,21 +29,21 @@
 @import "import/_grid.less";
 
 /* import basics styling */
-@import "import/_forms.less"; //forms
-@import "import/_buttons.less"; //buttons
-@import "import/_tables.less"; //tables
-@import "import/_medias.less"; //medias (img with max-width: 100% and picture element)
+@import "import/_forms.less"; // forms
+@import "import/_buttons.less"; // buttons
+@import "import/_tables.less"; // tables
+@import "import/_medias.less"; // medias (img with max-width: 100% and picture element)
 
 /* import components (see components folder for complete list) */
-@import "import/components/_buttons-group.less"; //buttons
-@import "import/components/_labels.less"; //labels
-@import "import/components/_dividers.less"; //dividers
-@import "import/components/_embed-responsive.less"; //responsive embed objects
+@import "import/components/_buttons-group.less"; // buttons
+@import "import/components/_labels.less"; // labels
+@import "import/components/_dividers.less"; // dividers
+@import "import/components/_embed-responsive.less"; // responsive embed objects
 @import "import/components/_tooltips.less";
 
 /* navigation component */
-// @import "import/components/navigation/_navigation.less"; //basic horizontal and vertical navigation if you don't use responsive navigation
-@import "import/components/navigation/_navigation-responsive-small.less"; //full css sliding navigation for small size (we then import navigation.less in the 768 media query)
+// @import "import/components/navigation/_navigation.less"; // basic horizontal and vertical navigation if you don't use responsive navigation
+@import "import/components/navigation/_navigation-responsive-small.less"; // full css sliding navigation for small size (we then import navigation.less in the 768 media query)
 
 /* icons component (e recommand that you put your icon font code in this file) */
 @import "import/components/_icons.less";
@@ -56,7 +56,7 @@
 /* base style */
 @import "_base.less";
 
- 
+
 /* Landscape phones and up (default: 480px) */
 @media (min-width: @mq-smaller) {
 	@import "_smaller.less";
@@ -64,7 +64,7 @@
 
 /* portrait tablet and up (default: 768px) */
 @media (min-width: @mq-small) {
-	@import "import/components/navigation/_navigation-responsive-large.less"; //basic navigation style to reset sliding nav
+	@import "import/components/navigation/_navigation-responsive-large.less"; // basic navigation style to reset sliding nav
 	@import "_small.less";
 }
 
