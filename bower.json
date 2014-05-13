@@ -1,0 +1,26 @@
+{
+  "name": "offkit",
+  "version": "1.0.0",
+  "description": "Offkit is a {less} starter kit for you to kickstart you project: Your work, your style!",
+  "keywords": [
+    "css",
+    "less",
+    "responsive",
+    "front-end",
+    "framework",
+    "starter",
+    "web"
+  ],
+  "main": [
+    "offkit/style.less",
+    "css/style.css",
+    "stylesheet-reference/stylesheet-reference.html"
+  ],
+  "ignore": [
+    ".*"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

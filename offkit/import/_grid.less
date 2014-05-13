@@ -42,7 +42,7 @@
 			}
 			// create class for each .offset-@gridColumnCount
 			.@{grid-offset-name}-@{index} when (@offset-grid = true) {
-				margin-left: (@gridColumnWidth * @index) + (@gridGutterWidth * (@index - 1) + (@gridGutterWidth)) !important;// + (@gridGutterWidth * 2));
+				margin-left: (@gridColumnWidth * @index) + (@gridGutterWidth * (@index - 1) + (@gridGutterWidth)) !important;
 			}
 
 		.grideCreate(@index - 1);
@@ -137,8 +137,6 @@
 	}
 }
 
-
-
 .@{row-name} when (@use-row = true) {
 	@{selector-row-col} {
 		&:first-child {
@@ -146,6 +144,7 @@
 		}
 	}
 }
+
 .@{wrap-name} when (@use-wrap = true) {
 	max-width: 90%;
 	margin: 0 auto;

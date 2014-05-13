@@ -242,7 +242,7 @@
 				<div id="sr-grid-generated" class="clearfix"></div>
                 <div class="sr-inner-wrapper">
 				    <pre id="sr-grid-code" class="sr-code"></pre>
-
+                        
                     <div class="sr-separator"></div>
                </div>
                 
@@ -787,6 +787,12 @@
 
         				$gridGen.append($newCol);
         			}
+
+                    //offset-
+                    for( i=1; i<colCnt; i++ ){
+                        var $newCol = '<div class="clearfix"><div class="'+colnm+'-'+(colCnt-i)+'  offset-'+i+' sr-column">offset '+i+'</div></div>';
+                        $gridGen.append($newCol);
+                    }
 
         			var codeTxt = '<div class="'+wrapnm+'">\n'+
         							'	<div class="'+colnm+'-1 first">…</div>\n'+
